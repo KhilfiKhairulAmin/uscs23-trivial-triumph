@@ -69,6 +69,10 @@ def log_in(users):
 
 
 if __name__ == "__main__":
-  users = {"khilfi": ["khilfi", -1], "yasmin":["yasmin", 67, 100]}
+  users = {
+  # "username": ["password", score1, score2, ..., scoreN],
+    "khilfi": ["khilfi", -1],  # Score -1 indicates the player hasn't played the quiz yet
+    "yasmin": ["yasmin", 67, 100]
+  }
   sign_up(users)
   log_in(users)
