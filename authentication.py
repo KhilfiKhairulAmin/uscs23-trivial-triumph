@@ -5,11 +5,11 @@ Provide interface for user authentications
 """
 
 
-def sign_up(existing_users):
+def sign_up(users: dict):
   """
   Register a new user
   """
-  new_username = ""
+
   # Handle username input
   while True:
     new_username = input("Enter a new username: ").strip()
@@ -20,7 +20,7 @@ def sign_up(existing_users):
       continue
 
     # Make sure username is unique
-    if new_username in existing_users:
+    if new_username in users.keys():
       print("Error: Username already exists")
       continue
 
@@ -47,8 +47,10 @@ def sign_up(existing_users):
 
     break
 
+  users[new_username] = [new_password, -1]
 
-def log_in():
+
+def log_in(existing_users):
   pass
 
 
