@@ -1,0 +1,3 @@
+username,password,scores
+yasmin,yasmin,67,100
+khilfi,khilfi,-1
