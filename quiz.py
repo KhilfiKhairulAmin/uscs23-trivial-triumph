@@ -23,7 +23,7 @@ def quiz_Set1(questionsMCQ, questionsTF):
     
 def Set1_MCQ(questionsMCQ, score):
     for count in range(1, 4, 1):
-        questionsNo=random.sample(range(len(questionsMCQ)), len(questionsMCQ))
+        questionsNo = random.choices(range(len(questionsMCQ)), k=3)
         for index in questionsNo:
             question, options, answer = questionsMCQ[index]
             print(count, ".", question)
