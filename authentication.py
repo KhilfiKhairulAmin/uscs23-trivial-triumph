@@ -1,7 +1,7 @@
 """
 Program: authentication.py
 Author: Khilfi
-Provide interface for user authentications
+Provide interface for user authentications in Trivial Triumph
 """
 
 
