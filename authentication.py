@@ -25,9 +25,7 @@ def sign_up(users: dict):
       continue
 
     # Allow underscores
-    temp = new_username
-    if "_" in new_username:
-      temp = new_username.replace("_", "")
+    temp = new_username.replace("_", "")
 
     # Make sure username only contains alphanumeric characters without space
     if not temp.isalnum():
@@ -41,8 +39,8 @@ def sign_up(users: dict):
     new_password = input("Enter a strong password: ")
     repeat_new_password = input("Enter the password again: ")
 
-    if repeat_new_password == new_password:
-      print("Error: Password does not match the repeated password", "\n")
+    if repeat_new_password != new_password:
+      print("Error: Password does not match the repeated password")
       continue
 
     break
@@ -50,10 +48,27 @@ def sign_up(users: dict):
   users[new_username] = [new_password, -1]
 
 
-def log_in(existing_users):
-  pass
+def log_in(users):
+  """
+  Authenticate existing user
+  """
+
+  while True:
+    username = input("Enter username: ")
+    password = input("Enter password: ")
+
+    if username not in users.keys():
+      print("Username does not exist")
+      continue
+
+    if users[username][0] != password:
+      print("Password is invalid")
+      continue  
+
+    break
 
 
 if __name__ == "__main__":
-  sign_up(["khilfi", "yasmin"])
-  # log_in()
+  users = {"khilfi": ["khilfi", -1], "yasmin":["yasmin", 67, 100]}
+  sign_up(users)
+  log_in(users)
