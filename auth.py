@@ -5,7 +5,7 @@ Provide interface for user authentications in Trivial Triumph
 """
 
 
-def sign_up(new_username: str, new_password: str, repeat_new_password: str, username_list: list[str]):
+def sign_up(new_username: str, new_password: str, repeat_new_password: str, users: dict):
   """
   Register a new user
   """
@@ -15,7 +15,7 @@ def sign_up(new_username: str, new_password: str, repeat_new_password: str, user
     raise ValueError("Username must contain at least 3 characters and maximum of 100 characters")
 
   # Make sure username is unique
-  if new_username in username_list:
+  if new_username in users.keys():
     raise ValueError("Username already exists")
 
   # Allow underscores
@@ -33,11 +33,11 @@ def sign_up(new_username: str, new_password: str, repeat_new_password: str, user
     raise ValueError("Password does not match the repeated password")
 
 
-def log_in(username: str, password: str, username_list: list[str]):
+def log_in(username: str, password: str, users: dict):
   """
   Authenticate existing user
   """
-  if username not in username_list:
+  if username not in users.keys():
     raise ValueError("Username does not exist")
 
   if users[username][0] != password:
