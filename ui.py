@@ -40,6 +40,7 @@ def clear():
   Clear the terminal
   """
   os.system("clear")
+  os.system("cls")
 
 
 def center(text="", end="\n"):
