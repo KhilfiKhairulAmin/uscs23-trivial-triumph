@@ -4,22 +4,31 @@ Author: Khilfi
 Provide interface for database operations in Trivial Triumph
 """
 
+USER_DATA = "users.txt"
+
+
 def get_users_data():
   """
   Read users data from users.txt
   """
-  f = open("users.txt", "r")
+  try:
+    # Open the database file
+    f = open(USER_DATA, "r")
+  except FileNotFoundError:
+    # When file is not found, create new file
+    new_f = open(USER_DATA, "w")
+    new_f.write("username,password,scores\n")
+    new_f.close()
+    f = open(USER_DATA, "r")
   next(f)  # Skip the 1st line, which is the data header (see users.txt file for reference)
   
   users = {}
-
   # Parse data into dictionary
   for line in f:
     raw = line.strip()
     username, password, *scores = raw.split(",")
     users[username] = [password]
     users[username].extend([int(s) for s in scores])  # Format scores to integer
-
   return users
 
 
@@ -27,7 +36,7 @@ def save_users_data(users: dict):
   """
   Write users data into users.txt file
   """
-  f = open("users.txt", "w")
+  f = open(USER_DATA, "w")
 
   raw = "username,password,scores\n"
 
