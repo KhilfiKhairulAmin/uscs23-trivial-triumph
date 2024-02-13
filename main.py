@@ -5,14 +5,25 @@ import db
 from ui import *
 
 
-# Global variable containing all user data
+# Global variable containing all user data.
 USERS = db.get_users_data()
+"""
+Example of how the data looks like:
+{
+  "username": ["password", 50, 70],
+  "khilfi": ["khilfimcg", -1],
+  "yasmin": ["yasmin123", 67, 100]
+}
+"""
 
 # Global variable storing the username of current user
 CUR_USER = ""
 
 
 def main_page():
+  """
+  Main page
+  """
   # Display header of main page
   display_header()
   center("Do you want to register or login?\n")
@@ -40,6 +51,9 @@ def main_page():
 
 
 def sign_up_page():
+  """
+  Sign up page
+  """
   # Display header of sign up page
   display_header()
   center("Sign Up\n")
@@ -61,6 +75,9 @@ def sign_up_page():
 
 
 def login_page():
+  """
+  Log in page
+  """
   print(TRIVIAL_TRIUMPH_ASCII_ART)
   center("Welcome to Trivial Triumph!\n")
   fill("*")
