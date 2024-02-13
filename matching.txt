@@ -1,0 +1,41 @@
+precedent1 -> consequent1
+precedent2 -> consequent2
+precedent3 -> consequent3
+answer1
+answer2
+answer3
+
+Film featuring a young boy befriending an alien -> Pirates of the Caribbean
+The movie franchise follows the adventures of a pirate named Jack Sparrow -> E.T. the Extra-Terrestrial
+A clownfish embark on a journey to find his son -> Finding Nemo
+12
+21
+33
+
+Capital city of France -> Pacific Ocean
+Land of the Rising Sun -> Paris
+Capital city of France -> Japan
+12
+23
+31
+
+National symbol of U.S.A. -> Cheetah
+Fastest land animal -> Ostrich
+Largest bird species -> Bald Eagle
+13
+21
+32
+
+Longest river in the world -> Atacama Desert
+European city divided by Bosphorus Strait -> Istanbul
+Driest Place on Earth -> Nile River
+13
+22
+31
+
+Black and white coated mammal -> Zebra
+Largest bear species -> Polar bear
+It can mimic human speech -> Parrot
+11
+22
+33
