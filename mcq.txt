@@ -1,0 +1,104 @@
+question
+answerA
+answerB
+answerC
+answerD
+correct_answer
+
+Which movie was not directed by Tim Burton?
+Snow White
+Pee-Wee’s Big Adventure
+Corpse Bride
+Big Fish
+A
+
+What country is known to have the best quality tap water?
+France
+Switzerland
+Germany
+Austria
+B
+
+Riyadh is the capital of what Middle-Eastern country?
+Yemen
+Iraq
+Saudi Arabia
+Syria
+C
+
+What mountain is closest to the Moon?
+Mount Everest
+Mount Chimborazo
+Nanga Parbat
+Mount Pandim
+B
+
+What is the largest country in the world in terms of land area?
+China
+Canada
+United States
+Russia
+D
+
+In which continent would you find the Amazon Rainforest, famous for its incredible biodiversity?
+Australia
+South America
+North America
+Asia
+B
+
+Which actor played the role of Captain Jack Sparrow in the "Pirates of the Caribbean" film series?
+Orlando Bloom
+Tom Cruise
+Johnny Depp
+Leonardo DiCaprio
+C
+
+Which of the following countries is NOT located in Africa?
+Kenya
+Nigeria
+Egypt
+Brazil
+D
+
+What is the largest species of big cat in the world?
+Tiger
+Cheetah
+Leopard
+Lion
+A
+
+Who directed the science fiction film "Inception" released in 2010?
+Steven Spielberg
+Christopher Nolan
+James Cameron
+Ridley Scott
+B
+
+Which ocean is the largest by surface area?
+Pacific Ocean
+Atlantic Ocean
+Indian Ocean
+Southern Ocean
+A
+
+In the movie "The Lord of the Rings: The Fellowship of the Ring," who plays the role of Frodo Baggins?
+Elijah Wood
+Daniel Radcliffe
+Rupert Grint
+Viggo Mortensen
+A
+
+Question: Which mountain range spans across seven countries in South America?
+Himalayas
+Alps
+Andes
+Rocky Mountains
+C
+
+Who won the Academy Award for Best Actress for her role in the movie "La La Land"?
+Emma Stone
+Meryl Streep
+Jennifer Lawrence
+Cate Blanchett
+A
