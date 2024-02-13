@@ -1,5 +1,6 @@
 import random
 
+## MY CHANGES STARTS HERE \/
 
 def load_mcq_questions():
     f = open("mcq.txt")
@@ -42,6 +43,7 @@ questionsMCQ = load_mcq_questions()
 
 questionsTF = load_tf_questions()
 
+## MY CHANGES ENDS HERE  ^
 
 def quiz_Set1(questionsMCQ, questionsTF):
     score=0
