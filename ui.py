@@ -4,6 +4,8 @@ Author: Khilfi
 Provide custom functions to display text beautifully in the terminal
 """
 
+import os
+
 # Width of the terminal
 WIDTH = 84
 
@@ -31,6 +33,13 @@ TRIVIAL_TRIUMPH_ASCII_ART = """
               ███    ███                                                             
 
 """
+
+
+def clear():
+  """
+  Clear the terminal
+  """
+  os.system("clear")
 
 
 def center(text="", end="\n"):
