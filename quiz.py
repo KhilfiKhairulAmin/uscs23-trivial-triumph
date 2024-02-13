@@ -33,7 +33,7 @@ def load_tf_questions():
     tf = []
     for _ in f:
         question = next(f).strip()
-        correct_answer = "true" if next(f).strip() == "T" else "false"
+        correct_answer = next(f).strip()
         tf.append((question, correct_answer))
 
     return tf
