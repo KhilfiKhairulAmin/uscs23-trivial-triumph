@@ -1,0 +1,68 @@
+question
+correct_answer_TF
+
+Sharks are mammals.
+F
+
+The hummingbird egg is the world's smallest bird egg.
+T
+
+Bats are blind.
+F
+
+An ant can lift 1,000 times its body weight.
+F
+
+The total length of the Great Wall of China adds up to 13,171 miles.
+T
+
+"The Shawshank Redemption" was directed by Steven Spielberg.
+F
+
+The Amazon River is the longest river in the world.
+T
+
+"The Godfather" trilogy was directed by Martin Scorsese.
+F
+
+The Great Wall of China is visible from space.
+F
+
+Penguins can fly.
+F
+
+Alfred Hitchcock directed the movie "Psycho."
+T
+
+The capital of Australia is Sydney.
+F
+
+Alligators are a type of crocodile.
+F
+
+"Jurassic Park" was based on a true story.
+F
+
+The movie "Forrest Gump" is based on a book of the same name.
+T
+
+The highest mountain in Africa is Mount Kilimanjaro.
+T
+
+Koalas are bears.
+F
+
+"The Wizard of Oz" was originally released in color.
+T
+
+"Titanic" is the highest-grossing film of all time.
+F
+
+The largest desert in the world is the Sahara Desert.
+T
+
+All swans are white.
+F
+
+"Gone with the Wind" won the Academy Award for Best Picture in 1940.
+T
