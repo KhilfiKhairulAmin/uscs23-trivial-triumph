@@ -5,47 +5,67 @@ Provide interface for user authentications in Trivial Triumph
 """
 
 
-def sign_up(new_username: str, new_password: str, repeat_new_password: str, username_list: list[str]):
+def sign_up(users: dict):
   """
   Register a new user
   """
 
-  # Make sure username is at least 3 characters long and maximum 100 characters long
-  if len(new_username) < 3 or len(new_username) > 100:
-    raise ValueError("Username must contain at least 3 characters and maximum of 100 characters")
+  # Handle username input
+  while True:
+    new_username = input("Enter a new username: ").strip()
 
-  # Make sure username is unique
-  if new_username in username_list:
-    raise ValueError("Username already exists")
+    # Make sure username is at least 3 characters long and maximum 100 characters long
+    if len(new_username) < 3 or len(new_username) > 100:
+      print("Error: Username must contain at least 3 characters and maximum of 100 characters")
+      continue
 
-  # Allow underscores
-  temp = new_username.replace("_", "")
+    # Make sure username is unique
+    if new_username in users.keys():
+      print("Error: Username already exists")
+      continue
 
-  # Make sure username only contains alphanumeric characters without space
-  if not temp.isalnum():
-    raise ValueError("Username must consists of only alphanumeric characters")
+    # Allow underscores
+    temp = new_username.replace("_", "")
 
-  # Make sure password is at least 8 characters long and maximum 100 characters long
-  if len(new_username) < 8 or len(new_username) > 100:
-    raise ValueError("Username must contain at least 8 characters and maximum of 100 characters")
+    # Make sure username only contains alphanumeric characters without space
+    if not temp.isalnum():
+      print("Error: Username must consists of only alphanumeric characters")
+      continue
 
-  if repeat_new_password != new_password:
-    raise ValueError("Password does not match the repeated password")
+    break
+
+  # Handle password input
+  while True:
+    new_password = input("Enter a strong password: ")
+    repeat_new_password = input("Enter the password again: ")
+
+    if repeat_new_password != new_password:
+      print("Error: Password does not match the repeated password")
+      continue
+
+    break
 
   users[new_username] = [new_password, -1]
 
 
-def log_in(username: str, password: str, username_list: list[str]):
+def log_in(users):
   """
   Authenticate existing user
   """
-  if username not in username_list:
-    raise ValueError("Username does not exist")
 
-  if users[username][0] != password:
-    raise ValueError("Username or password is false")
-  
-  return True
+  while True:
+    username = input("Enter username: ")
+    password = input("Enter password: ")
+
+    if username not in users.keys():
+      print("Username does not exist")
+      continue
+
+    if users[username][0] != password:
+      print("Password is invalid")
+      continue  
+
+    break
 
 
 if __name__ == "__main__":
