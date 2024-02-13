@@ -54,8 +54,8 @@ def sign_up_page():
   while True:
     try:
       username = prompt("Username: ")
-      password = prompt("Password: ")
-      repeat_password = prompt("Repeat password: ")
+      password = prompt("Password: ", hidden=True)
+      repeat_password = prompt("Repeat password: ", hidden=True)
       auth.sign_up(username, password, repeat_password, USERS)  # Validate the input data for sign up
     except ValueError as err:
       error(err)
@@ -81,7 +81,7 @@ def login_page():
   while True:
     try:
       username = prompt("Username: ")
-      password = prompt("Password: ")
+      password = prompt("Password: ", hidden=True)
       auth.log_in(username, password, USERS)  # Validate the input data for sign up
     except ValueError as err:
       error(err)
