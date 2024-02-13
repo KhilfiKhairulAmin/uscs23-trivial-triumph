@@ -32,8 +32,6 @@ def sign_up(new_username: str, new_password: str, repeat_new_password: str, user
   if repeat_new_password != new_password:
     raise ValueError("Password does not match the repeated password")
 
-  users[new_username] = [new_password, -1]
-
 
 def log_in(username: str, password: str, username_list: list[str]):
   """
@@ -44,8 +42,6 @@ def log_in(username: str, password: str, username_list: list[str]):
 
   if users[username][0] != password:
     raise ValueError("Username or password is false")
-  
-  return True
 
 
 if __name__ == "__main__":
