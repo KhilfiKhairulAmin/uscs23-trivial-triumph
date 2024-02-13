@@ -1,18 +1,46 @@
 import random
 
-questionsMCQ=[("Which movie was not directed by Tim Burton?", ["A. Snow White", "B. Pee-Wee’s Big Adventure", "C. Corpse Bride", "D. Big Fish"], "A"),
-            ("What country is known to have the best quality tap water?", ["A. France", "B. Switzerland", "C. Germany", "D. Austria"], "B"),
-            ("Riyadh is the capital of what Middle-Eastern country?", ["A. Yemen", "B. Iraq", "C. Saudi Arabia", "D. Syria"], "C"),
-            ("What mountain is closest to the Moon?", ["A. Mount Everest", "B. Mount Chimborazo", "C. Nanga Parbat", "D. Mount Pandim"], "B"),
-            ("What is the largest country in the world in terms of land area?", ["A. China", "B. Canada", "C. United States", "D. Russia"], "D")
-]
 
-questionsTF=[("Sharks are mammals.", "false"),
-            ("The hummingbird egg is the world's smallest bird egg.", "true"),
-            ("Bats are blind.", "false"), 
-            ("An ant can lift 1,000 times its body weight.", "false"),
-            ("The total length of the Great Wall of China adds up to 13,171 miles.", "true")
-]
+def load_mcq_questions():
+    f = open("mcq.txt")
+
+    # Skip the first 6 lines which are the sample questions of the file
+    for _ in range(6):
+        next(f)  # Skip the line
+
+    mcq = []
+    for _ in f:
+        question = next(f).strip()
+        answers = []
+        answers.append(f"A. {next(f).strip()}")
+        answers.append(f"B. {next(f).strip()}")
+        answers.append(f"C. {next(f).strip()}")
+        answers.append(f"D. {next(f).strip()}")
+        correct_answer = next(f).strip()
+        mcq.append((question, answers, correct_answer))
+
+    return mcq
+
+
+def load_tf_questions():
+    f = open("tf.txt")
+
+    # Skip the first 2 lines which are the sample questions of the file
+    for _ in range(2):
+        next(f)  # Skip the line
+
+    tf = []
+    for _ in f:
+        question = next(f).strip()
+        correct_answer = "true" if next(f).strip() == "T" else "false"
+        tf.append((question, correct_answer))
+
+    return tf
+
+
+questionsMCQ = load_mcq_questions()
+
+questionsTF = load_tf_questions()
 
 
 def quiz_Set1(questionsMCQ, questionsTF):
