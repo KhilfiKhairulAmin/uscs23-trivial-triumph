@@ -4,7 +4,7 @@ Author: Khilfi
 Provide interface for database operations in Trivial Triumph
 """
 
-def load_data():
+def get_users_data():
   """
   Read users data from users.txt
   """
@@ -23,7 +23,7 @@ def load_data():
   return users
 
 
-def save_data(users: dict):
+def save_users_data(users: dict):
   """
   Write users data into users.txt file
   """
@@ -82,5 +82,5 @@ def load_tf_questions():
 
 
 if __name__ == "__main__":
-  save_data({'yasmin': ['yasmin', 67, 100], 'khilfi': ['khilfi', -1], 'irfan': ['izerith', -1]})
-  load_data()
+  save_users_data({'yasmin': ['yasmin', 67, 100], 'khilfi': ['khilfi', -1], 'irfan': ['izerith', -1]})
+  get_users_data()
