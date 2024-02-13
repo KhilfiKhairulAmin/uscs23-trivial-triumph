@@ -2,7 +2,7 @@
 
 import auth
 import db
-from ui import *
+from ui import display_header, center, error, prompt, clear
 
 
 # Global variable containing all user data.
@@ -78,18 +78,33 @@ def login_page():
   """
   Log in page
   """
-  print(TRIVIAL_TRIUMPH_ASCII_ART)
-  center("Welcome to Trivial Triumph!\n")
-  fill("*")
-  print()
+  # Display header of login page
+  display_header()
   center("Log In\n")
-  username = prompt("Username: ")
-  password = prompt("Password: ")
+  
+  # Prompt user inputs
+  while True:
+    try:
+      username = prompt("Username: ")
+      password = prompt("Password: ")
+      auth.log_in(username, password, USERS.keys())  # Validate the input data for sign up
+    except ValueError as err:
+      error(err)
+    else:
+      # Log in the user
+      CUR_USER = username
+      break
+
+
+def home_page():
+  display_header()
+  print(CUR_USER)
     
 
 def main():
   # Start at main page
   main_page()
+  home_page()
 
 
 if __name__ == "__main__":
