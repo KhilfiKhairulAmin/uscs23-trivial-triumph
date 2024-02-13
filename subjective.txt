@@ -1,0 +1,38 @@
+question
+keyword1 + keyword2 + ... + keywordN
+
+What famous European city is known as the "City of Love"?
+Paris
+
+Which Asian country is home to the world's tallest mountain, Mount Everest?
+Nepal
+
+Which African country is often referred to as the "Cradle of Humankind"?
+South + Africa
+
+Which continent is home to the largest desert in the world?
+Africa
+
+What is the longest river in the United States?
+Missouri River
+
+Which country is both the largest in area and population in South America?
+Brazil
+
+Who won the Academy Award for Best Actor in 2020 and in what movie?
+Joaquin Phoenix + Joker
+
+Which movie won the Academy Award for Best Picture in 2019?
+Green Book
+
+What is the largest species of bear?
+Polar Bear
+
+Which bird is known for its ability to turn its head 180 degrees?
+Owl
+
+What animal is known as the "King of the Jungle"?
+Lion
+
+Which film directed by Steven Spielberg was released in 1993 and became a blockbuster hit about dinosaurs coming back to life?
+Jurassic Park
