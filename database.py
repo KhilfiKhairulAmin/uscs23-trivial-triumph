@@ -38,6 +38,49 @@ def save_data(users: dict):
   f.write(raw)
 
 
+def load_mcq_questions():
+    """
+    Read MCQ questions and answers in mcq.txt
+    """
+    f = open("mcq.txt")
+
+    # Skip the first 6 lines which are the sample questions of the file
+    for _ in range(6):
+        next(f)  # Skip the line
+
+    mcq = []
+    for _ in f:
+        question = next(f).strip()
+        answers = []
+        answers.append(f"A. {next(f).strip()}")
+        answers.append(f"B. {next(f).strip()}")
+        answers.append(f"C. {next(f).strip()}")
+        answers.append(f"D. {next(f).strip()}")
+        correct_answer = next(f).strip()
+        mcq.append((question, answers, correct_answer))
+
+    return mcq
+
+
+def load_tf_questions():
+    """
+    Read True/False questions and answers in tf.txt
+    """
+    f = open("tf.txt")
+
+    # Skip the first 2 lines which are the sample questions of the file
+    for _ in range(2):
+        next(f)  # Skip the line
+
+    tf = []
+    for _ in f:
+        question = next(f).strip()
+        correct_answer = "true" if next(f).strip() == "T" else "false"
+        tf.append((question, correct_answer))
+
+    return tf
+
+
 if __name__ == "__main__":
   save_data({'yasmin': ['yasmin', 67, 100], 'khilfi': ['khilfi', -1], 'irfan': ['izerith', -1]})
   load_data()
