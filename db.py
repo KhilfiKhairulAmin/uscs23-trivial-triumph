@@ -1,5 +1,5 @@
 """
-Program: database.py
+Program: db.py
 Author: Khilfi
 Provide interface for database operations in Trivial Triumph
 """

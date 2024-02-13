@@ -1,5 +1,5 @@
 """
-Program: authentication.py
+Program: auth.py
 Author: Khilfi
 Provide interface for user authentications in Trivial Triumph
 """
