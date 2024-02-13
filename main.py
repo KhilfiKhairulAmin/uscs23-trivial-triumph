@@ -1,3 +1,7 @@
+# TODO Make state machine for this app
+# TODO Make handler for going back to previous state
+# TODO Make home page
+
 import auth
 import db
 from ui import display_header, center, error, prompt, clear, display_header_cinematic
@@ -26,13 +30,13 @@ def main_page():
 
     # Choice must be integer
     if not choice.isdigit():
-      error("Please enter a number\n")
+      error("Please enter a number")
       continue
 
     # Choice must be between 1 and 2
     choice = int(choice)
     if choice < 1 or choice > 2:
-      error("Invalid choice\n")
+      error("Invalid choice")
       continue
 
     clear()  # Clear terminal screen before going to next page
