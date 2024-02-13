@@ -1,2 +1,3 @@
 # Ignore database file
 users.txt
+__pycache__
