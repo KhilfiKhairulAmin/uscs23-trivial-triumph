@@ -64,12 +64,12 @@ def prompt(prompt_message="", input_width=18) -> str:
   return input(prompt_message.center(WIDTH - input_width).rstrip()+" ")
 
 
-def display_header():
+def display_header(subtitle="Welcome to Trivial Triumph!"):
   """
   Display Trivial Triumph remarkable header
   """
   print(TRIVIAL_TRIUMPH_ASCII_ART)
-  center("Welcome to Trivial Triumph!\n")
+  center(f"{subtitle}\n")
   fill("*")
   print()
 
