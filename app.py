@@ -13,6 +13,8 @@ CUR_USER = ""
 # Global variable containing all user data.
 USERS = db.get_users_data()
 
+# Global variable that store the current state of the application
+
 
 def main_page():
   """
