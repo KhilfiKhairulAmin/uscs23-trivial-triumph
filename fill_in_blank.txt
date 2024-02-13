@@ -1,0 +1,35 @@
+question_with_blanks
+answer1,answer2,...,answerN
+
+The Great Barrier Reef is located off the coast of _________.
+Australia
+
+The capital of Japan is _____.
+Tokyo
+
+_____ _______ is where the Amazon Rainforest primarily located.
+South,America
+
+The ______ fox is known for its distinctive black and white coloration.
+Arctic
+
+Elephants are known for their long, protruding _____s.
+trunk
+
+_____ _______ is the protagonist in "The Lord of the Rings".
+Frodo,Baggins
+
+The main setting for "The Shawshank Redemption" is a ______.
+prison
+
+"The Sound of Music" won the Academy Award for Best _______ in ____.
+Picture,1965
+
+The ____ Canal connects the Mediterranean Sea to the ___ Sea.
+Suez,Red
+
+In the film "The Silence of the ____," Clarice Starling is a young FBI trainee who seeks the help of Dr. ________ Lecter to catch a serial killer.
+Lambs,Hannibal
+
+"________ Beauty" is a 1999 film directed by Sam Mendes that explores the lives of suburban families in the ______ States.
+American,United
