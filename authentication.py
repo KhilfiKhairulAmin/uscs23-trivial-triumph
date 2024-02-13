@@ -25,9 +25,9 @@ def sign_up(new_username: str, new_password: str, repeat_new_password: str, user
   if not temp.isalnum():
     raise ValueError("Username must consists of only alphanumeric characters")
 
-  # Make sure password is at least 8 characters long and maximum 100 characters long
-  if len(new_username) < 8 or len(new_username) > 100:
-    raise ValueError("Username must contain at least 8 characters and maximum of 100 characters")
+  # Make sure password is at least 3 characters long and maximum 100 characters long
+  if len(new_password) < 3 or len(new_password) > 100:
+    raise ValueError("Password must contain at least 3 characters and maximum of 100 characters")
 
   if repeat_new_password != new_password:
     raise ValueError("Password does not match the repeated password")
