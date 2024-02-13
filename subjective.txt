@@ -1,5 +1,5 @@
 question
-keyword1 + keyword2 + ... + keywordN
+anwer
 
 What famous European city is known as the "City of Love"?
 Paris
@@ -8,7 +8,7 @@ Which Asian country is home to the world's tallest mountain, Mount Everest?
 Nepal
 
 Which African country is often referred to as the "Cradle of Humankind"?
-South + Africa
+South Africa
 
 Which continent is home to the largest desert in the world?
 Africa
@@ -19,8 +19,8 @@ Missouri River
 Which country is both the largest in area and population in South America?
 Brazil
 
-Who won the Academy Award for Best Actor in 2020 and in what movie?
-Joaquin Phoenix + Joker
+Who won the Academy Award for Best Actor in 2020?
+Joaquin Phoenix
 
 Which movie won the Academy Award for Best Picture in 2019?
 Green Book
