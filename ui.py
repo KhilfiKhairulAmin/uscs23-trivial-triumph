@@ -4,14 +4,14 @@ Author: Khilfi
 Provide custom functions to display text beautifully in the terminal
 """
 
+from time import sleep
 import os
 
 # Width of the terminal
 WIDTH = 84
 
 # Source: https://patorjk.com/software/taag/#p=display&v=2&f=Delta%20Corps%20Priest%201&t=TRIVIAL%0ATRIUMPH
-TRIVIAL_TRIUMPH_ASCII_ART = """
-
+TRIVIAL_ASCII_ART = """
            ███        ▄████████  ▄█   ▄█    █▄   ▄█     ▄████████  ▄█                       
        ▀█████████▄   ███    ███ ███  ███    ███ ███    ███    ███ ███                       
           ▀███▀▀██   ███    ███ ███▌ ███    ███ ███▌   ███    ███ ███                       
@@ -21,7 +21,8 @@ TRIVIAL_TRIUMPH_ASCII_ART = """
            ███       ███    ███ ███  ███    ███ ███    ███    ███ ███▌    ▄                 
           ▄████▀     ███    ███ █▀    ▀██████▀  █▀     ███    █▀  █████▄▄██                 
                      ███    ███                                   ▀             
-
+"""
+TRIUMPH_ASCII_ART = """
     ███        ▄████████  ▄█  ███    █▄    ▄▄▄▄███▄▄▄▄      ▄███████▄    ▄█    █▄    
 ▀█████████▄   ███    ███ ███  ███    ███ ▄██▀▀▀███▀▀▀██▄   ███    ███   ███    ███   
    ▀███▀▀██   ███    ███ ███▌ ███    ███ ███   ███   ███   ███    ███   ███    ███   
@@ -31,9 +32,8 @@ TRIVIAL_TRIUMPH_ASCII_ART = """
     ███       ███    ███ ███  ███    ███ ███   ███   ███   ███          ███    ███   
    ▄████▀     ███    ███ █▀   ████████▀   ▀█   ███   █▀   ▄████▀        ███    █▀    
               ███    ███                                                             
-
 """
-
+TRIVIAL_TRIUMPH_ASCII_ART = TRIVIAL_ASCII_ART + TRIUMPH_ASCII_ART
 
 def clear():
   """
@@ -70,6 +70,21 @@ def display_header(subtitle="Welcome to Trivial Triumph!"):
   """
   print(TRIVIAL_TRIUMPH_ASCII_ART)
   center(f"{subtitle}\n")
+  fill("*")
+  print()
+
+
+def display_header_cinematic(subtitle="Welcome to Trivial Triumph!"):
+  """
+  Display Trivial Triumph remarkable header cinematically
+  """
+  sleep(1)
+  print(TRIVIAL_ASCII_ART, end="")
+  sleep(1.5)
+  print(TRIUMPH_ASCII_ART)
+  sleep(1.5)
+  center(f"{subtitle}\n")
+  sleep(2)
   fill("*")
   print()
 
