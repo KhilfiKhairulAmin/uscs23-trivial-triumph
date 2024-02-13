@@ -11,7 +11,7 @@ import os
 WIDTH = 84
 
 # Source: https://patorjk.com/software/taag/#p=display&v=2&f=Delta%20Corps%20Priest%201&t=TRIVIAL%0ATRIUMPH
-TRIVIAL_ASCII_ART = """
+TRIVIAL_ASCII_ART = """\033[93m
            ███        ▄████████  ▄█   ▄█    █▄   ▄█     ▄████████  ▄█                       
        ▀█████████▄   ███    ███ ███  ███    ███ ███    ███    ███ ███                       
           ▀███▀▀██   ███    ███ ███▌ ███    ███ ███▌   ███    ███ ███                       
@@ -21,8 +21,8 @@ TRIVIAL_ASCII_ART = """
            ███       ███    ███ ███  ███    ███ ███    ███    ███ ███▌    ▄                 
           ▄████▀     ███    ███ █▀    ▀██████▀  █▀     ███    █▀  █████▄▄██                 
                      ███    ███                                   ▀             
-"""
-TRIUMPH_ASCII_ART = """
+\033[00m"""
+TRIUMPH_ASCII_ART = """\033[93m
     ███        ▄████████  ▄█  ███    █▄    ▄▄▄▄███▄▄▄▄      ▄███████▄    ▄█    █▄    
 ▀█████████▄   ███    ███ ███  ███    ███ ▄██▀▀▀███▀▀▀██▄   ███    ███   ███    ███   
    ▀███▀▀██   ███    ███ ███▌ ███    ███ ███   ███   ███   ███    ███   ███    ███   
@@ -32,7 +32,7 @@ TRIUMPH_ASCII_ART = """
     ███       ███    ███ ███  ███    ███ ███   ███   ███   ███          ███    ███   
    ▄████▀     ███    ███ █▀   ████████▀   ▀█   ███   █▀   ▄████▀        ███    █▀    
               ███    ███                                                             
-"""
+\033[00m"""
 TRIVIAL_TRIUMPH_ASCII_ART = TRIVIAL_ASCII_ART + TRIUMPH_ASCII_ART
 
 def clear():
@@ -84,7 +84,7 @@ def display_header_cinematic(subtitle="Welcome to Trivial Triumph!"):
   print(TRIUMPH_ASCII_ART)
   sleep(1.5)
   center(f"{subtitle}\n")
-  sleep(2)
+  sleep(1.7)
   fill("*")
   print()
 
@@ -93,4 +93,6 @@ def error(text=""):
   """
   Print error message in red colour
   """
-  center(f"\033[91m{text}\033[00m\n")
+  print("\033[91m", end="")
+  center(f"{text}", end="")
+  print("\033[00m\n")
