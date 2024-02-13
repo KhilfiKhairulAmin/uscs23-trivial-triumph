@@ -1,7 +1,7 @@
 # TODO Siapkan UI untuk login
 
-import authentication as auth
-import database as db
+import auth
+import db
 from ui import *
 
 
