@@ -19,11 +19,15 @@ def main_page():
 
     choice = int(choice)
 
-    if choice < 1 or choice > 2:
+    if choice == 1:
+      sign_up_page()
+      break
+    elif choice == 2:
+      login_page()
+      break
+    else:
       error("Invalid choice\n")
       continue
-
-    return choice
 
 
 def login_page():
@@ -37,12 +41,19 @@ def login_page():
 
 
 def sign_up_page():
+  display_header()
+  center("Sign Up\n")
+  username = prompt("Username: ")
+  password = prompt("Password: ")
+  repeat_password = prompt("Repeat password: ")
+  auth.sign_up(username, password, repeat_password, users.keys())
   pass
 
 
 def main():
-  state = main_page()
-
+  # Global variable containing all user data
+  global users
+  users = db.get_users_data()
 
 
 if __name__ == "__main__":
