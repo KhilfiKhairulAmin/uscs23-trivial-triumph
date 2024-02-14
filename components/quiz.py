@@ -1,89 +1,13 @@
+"""
+Program: quiz.py
+Author: Trivial Triumph Devs
+Provide quiz algorithms for handling quiz logics and scoring
+"""
+
+
+from components.db import load_mcq_questions, load_tf_questions, load_matching_questions, load_FIB_questions, load_sub_questions
+
 import random
-
-
-def load_mcq_questions():
-    f = open("mcq.txt")
-
-    # Skip the first 6 lines which are the sample questions of the file
-    for _ in range(6):
-        next(f)  # Skip the line
-
-    mcq = []
-    for _ in f:
-        question = next(f).strip()
-        answers = []
-        answers.append(f"A. {next(f).strip()}")
-        answers.append(f"B. {next(f).strip()}")
-        answers.append(f"C. {next(f).strip()}")
-        answers.append(f"D. {next(f).strip()}")
-        correct_answer = next(f).strip()
-        mcq.append((question, answers, correct_answer))
-
-    return mcq
-
-
-def load_tf_questions():
-    f = open("tf.txt")
-
-    # Skip the first 2 lines which are the sample questions of the file
-    for _ in range(2):
-        next(f)  # Skip the line
-
-    tf = []
-    for _ in f:
-        question = next(f).strip()
-        correct_answer = "true" if next(f).strip() == "T" else "false"
-        tf.append((question, correct_answer))
-
-    return tf
-
-
-def load_matching_questions():
-    f = open("matching.txt")
-        
-    for _ in range(3):
-        next(f)
-
-    matchings = []
-    for _ in f:  # Read three questions and answers
-        m = []
-        for _ in range(3):
-            question, correct_answer = next(f).strip().split(" -> ")
-            m.append((question, correct_answer))
-        matchings.append(m)
-
-    return matchings
-
-
-def load_FIB_questions():
-    f = open("FIB.txt")
-
-    for _ in range (2):
-        next(f)
-
-    FIB = []
-    for _ in f:
-        question = next(f).strip()
-        correct_answers = next(f).strip().split(",")
-        FIB.append((question, correct_answers))
-
-    return FIB
-
-
-def load_sub_questions():
-    f = open("sub.txt")
-
-    for _ in range (2):
-        next(f)
-
-    sub = []
-    for _ in f:
-        question = next(f).strip()
-        correct_answer = next(f).strip()
-        sub.append((question, correct_answer))
-
-    return sub
-
 
 
 questionsMCQ = load_mcq_questions()
@@ -91,7 +15,6 @@ questionsTF = load_tf_questions()
 questionsMatch = load_matching_questions()
 questionsFIB = load_FIB_questions()
 questionsSub = load_sub_questions()
-
 
 
 def quizEasy(questionsMCQ, questionsTF, questionsMatch, questionsFIB, questionsSub):
