@@ -72,6 +72,7 @@ def display_header(subtitle="Welcome to Trivial Triumph!"):
   """
   Display Trivial Triumph remarkable header
   """
+  clear()
   print(TRIVIAL_TRIUMPH_ASCII_ART)
   center(f"{subtitle}\n")
   fill("*")
@@ -82,6 +83,7 @@ def display_header_cinematic(subtitle="Welcome to Trivial Triumph!"):
   """
   Display Trivial Triumph remarkable header cinematically
   """
+  clear()
   sleep(1)
   print(TRIVIAL_ASCII_ART, end="")
   sleep(1.5)
