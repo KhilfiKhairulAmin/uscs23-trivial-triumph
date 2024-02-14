@@ -68,6 +68,24 @@ def prompt(prompt_message="", input_width=18, hidden=False) -> str:
   else: return input(prompt_message.center(WIDTH - input_width).rstrip()+" ")  # Normal input
 
 
+def prompt_choice(prompt_message="", choices = [0, 1], input_width=2) -> int:
+  """
+  Validate choice input
+  """
+  choice = prompt(prompt_message, input_width)
+
+  # Choice must be integer
+  if not choice.isdigit():
+    raise ValueError("Please enter a number")
+
+  # Choice must be between 1 and 3
+  choice = int(choice)
+  if choice not in choices:
+    raise ValueError("Invalid choice")
+  
+  return choice
+
+
 def display_header(subtitle="Welcome to Trivial Triumph!"):
   """
   Display Trivial Triumph remarkable header
