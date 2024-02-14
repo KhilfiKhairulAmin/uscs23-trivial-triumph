@@ -4,7 +4,17 @@ Author: Khilfi
 Provide interface for database operations in Trivial Triumph
 """
 
-USER_DATA = "users.txt"
+from os import getcwd
+
+
+# Store current working directory for file reference
+CWD = getcwd()
+
+# Path to file where the users data are stored
+USER_DATA_FILE = f"{CWD}\data\users.txt"
+
+# Path to folder containing all questions
+QUESTIONS_FOLDER = f"{CWD}\questions"
 
 
 def get_users_data():
@@ -13,13 +23,13 @@ def get_users_data():
   """
   try:
     # Open the database file
-    f = open(USER_DATA, "r")
+    f = open(USER_DATA_FILE, "r")
   except FileNotFoundError:
     # When file is not found, create new file
-    new_f = open(USER_DATA, "w")
+    new_f = open(USER_DATA_FILE, "w")
     new_f.write("username,password,scores\n")
     new_f.close()
-    f = open(USER_DATA, "r")
+    f = open(USER_DATA_FILE, "r")
   next(f)  # Skip the 1st line, which is the data header (see users.txt file for reference)
   
   users = {}
@@ -36,7 +46,7 @@ def save_users_data(users: dict):
   """
   Write users data into users.txt file
   """
-  f = open(USER_DATA, "w")
+  f = open(USER_DATA_FILE, "w")
 
   raw = "username,password,scores\n"
 
@@ -51,7 +61,7 @@ def load_mcq_questions():
     """
     Read MCQ questions and answers in mcq.txt
     """
-    f = open("mcq.txt")
+    f = open(f"{QUESTIONS_FOLDER}\mcq.txt")
 
     # Skip the first 6 lines which are the sample questions of the file
     for _ in range(6):
@@ -75,7 +85,7 @@ def load_tf_questions():
     """
     Read True/False questions and answers in tf.txt
     """
-    f = open("tf.txt")
+    f = open(f"{QUESTIONS_FOLDER}\\tf.txt")
 
     # Skip the first 2 lines which are the sample questions of the file
     for _ in range(2):
