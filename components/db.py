@@ -78,7 +78,7 @@ def load_mcq_questions():
         answers.append(f"B. {next(f).strip()}")
         answers.append(f"C. {next(f).strip()}")
         answers.append(f"D. {next(f).strip()}")
-        correct_answer = next(f).strip()
+        correct_answer = next(f).strip().lower()
         mcq.append((question, answers, correct_answer))
 
     return mcq
@@ -97,7 +97,7 @@ def load_tf_questions():
     tf = []
     for _ in f:
         question = next(f).strip()
-        correct_answer = "true" if next(f).strip() == "T" else "false"
+        correct_answer = next(f).strip().lower()
         tf.append((question, correct_answer))
 
     return tf
@@ -135,8 +135,8 @@ def load_FIB_questions():
     FIB = []
     for _ in f:
         question = next(f).strip()
-        correct_answers = next(f).strip().split(",")
-        FIB.append((question, correct_answers))
+        correct_answer = next(f).strip().lower()
+        FIB.append((question, correct_answer))
 
     return FIB
 
@@ -153,7 +153,7 @@ def load_sub_questions():
     sub = []
     for _ in f:
         question = next(f).strip()
-        correct_answer = next(f).strip()
+        correct_answer = next(f).strip().lower()
         sub.append((question, correct_answer))
 
     return sub
