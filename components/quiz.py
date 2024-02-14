@@ -5,7 +5,7 @@ Provide quiz algorithms for handling quiz logics and scoring
 """
 
 
-from components.db import load_mcq_questions, load_tf_questions, load_matching_questions, load_FIB_questions, load_sub_questions
+from db import load_mcq_questions, load_tf_questions, load_matching_questions, load_FIB_questions, load_sub_questions
 
 import random
 
@@ -43,7 +43,7 @@ def quizEasy_MCQ(questionsMCQ: list, score):
 
         # Remove picked questions so it doesn't repeat
         for picked in questionsNo:
-            questionsMCQ.remove(picked)
+            questionsMCQ.pop(picked)
 
         for index in questionsNo:
             question, options, answer = questionsMCQ[index]
@@ -70,7 +70,7 @@ def quizEasy_TF(questionsTF, score):
 
         # Remove picked questions so it doesn't repeat
         for picked in questionsNo:
-            questionsTF.remove(picked)
+            questionsTF.pop(picked)
         
         for index in questionsNo:
             question, answer = questionsTF[index]
@@ -87,12 +87,23 @@ def quizEasy_TF(questionsTF, score):
     return score
 
 
-def quizEasy_Match(questionsMatch, score):   
+def quizEasy_Match(questionsMatch: list, score):   
     print("\nMatching Questions\n")
-    print("Match the statements <1,2,3> correctly to their answers <A,B,C>.")
+    print("Match the statements <A,B,C> correctly to their answers <1,2,3>.")
+
+    questionsNo = random.randint(0, len(questionsMatch)-1)
+
+    # Remove picked question so it doesn't repeat
+    questionsMatch.pop(questionsNo)
+
+    # Display matching boxes
+    for match in questionsMatch:
+        print("%-30    %30" % match)
+
+    
     
     for count in range (1, 4):
-        questionsNo=random.choices(range(len(questionsMatch)), k=3)
+        questionsNo = random.choices(range(len(questionsMatch)), k=3)
         for index in questionsNo:
             question, answer = questionsMatch[index]
             print(question, count, answer)
@@ -104,9 +115,6 @@ def quizEasy_Match(questionsMatch, score):
             else:
                 print("Incorrect.")
                 break
-
-            del questionsMatch[index]        
-            break
         
     return score
 
@@ -197,6 +205,6 @@ def quizEasy2_TF(questionsTF, score):
     return score
 
             
-
-quizEasy(questionsMCQ, questionsTF, questionsMatch, questionsFIB, questionsSub)
-
+# quizEasy(questionsMCQ, questionsTF, questionsMatch, questionsFIB, questionsSub)
+if __name__ == "__main__":
+    quizEasy_Match(questionsMatch, score=0)
