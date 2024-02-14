@@ -1,26 +1,5 @@
 import random
 
-questionsMatch=[("What is the scientific term for the “little brain” at the base of the brain that coordinates movement and balance?", "cerebellum"),
-                ("What is the chemical symbol for the element mercury?", "hg"),
-                ("What is the official animal of Scotland?", "unicorn"),
-                ("What animal is known to laugh and has been proven to have a sense of humor?", "rats"),
-                ("What animal’s milk is pink?", "hippopotamus")
-]
-
-questionsFIB=[("Q", "Modern", "family"),
-              ("Q", "Gilmore", "girls"),
-              ("Q", "The Big Bang", "theory"),
-              ("Q", "Mission:", "impossible")
-              ("Q", "Grey's", "anatomy")
-]
-
-questionsSub=[("What is the only food that can never go bad?", "honey"),
-              ("Who is Barbie’s little sister?", "skipper"),
-              ("Anna, Elsa Kristoff and Olaf are all characters in what animated movie?", "frozen"),
-              ("Which popular condiment was once sold as a medicinal cure for diarrhea?", "ketchup"),
-              ("Which country do cities of Perth, Adelade & Brisbane belong to?", "australia"),
-]
-
 
 def load_mcq_questions():
     f = open("mcq.txt")
@@ -53,10 +32,27 @@ def load_tf_questions():
     tf = []
     for _ in f:
         question = next(f).strip()
-        correct_answer = next(f).strip()
+        correct_answer = "true" if next(f).strip() == "T" else "false"
         tf.append((question, correct_answer))
 
     return tf
+
+
+def load_matching_questions():
+    f = open("matching.txt")
+        
+    for _ in range(3):
+        next(f)
+
+    matchings = []
+    for _ in f:  # Read three questions and answers
+        m = []
+        for _ in range(3):
+            question, correct_answer = next(f).strip().split(" -> ")
+            m.append((question, correct_answer))
+        matchings.append(m)
+
+    return matchings
 
 
 def load_FIB_questions():
@@ -65,36 +61,61 @@ def load_FIB_questions():
     for _ in range (2):
         next(f)
 
-    fib = []
+    FIB = []
     for _ in f:
         question = next(f).strip()
-        correct_answer =                    #??????
-        FIB_append((question, correct_answer))
+        correct_answers = next(f).strip().split(",")
+        FIB.append((question, correct_answers))
+
+    return FIB
+
+
+def load_sub_questions():
+    f = open("sub.txt")
+
+    for _ in range (2):
+        next(f)
+
+    sub = []
+    for _ in f:
+        question = next(f).strip()
+        correct_answer = next(f).strip()
+        sub.append((question, correct_answer))
+
+    return sub
+
 
 
 questionsMCQ = load_mcq_questions()
 questionsTF = load_tf_questions()
+questionsMatch = load_matching_questions()
+questionsFIB = load_FIB_questions()
+questionsSub = load_sub_questions()
 
 
 
-def quizEasy_Set1(questionsMCQ, questionsTF, questionMatch, questionsFIB, questionsSub):
+def quizEasy(questionsMCQ, questionsTF, questionsMatch, questionsFIB, questionsSub):
     score=0
-    score+=Set1_MCQ(questionsMCQ, score)
-    score+=Set1_TF(questionsTF, score)
-    score+=Set1_Match(questionsMatch, score)
+    score+=quizEasy_MCQ(questionsMCQ, score)
+    score+=quizEasy_TF(questionsTF, score)
+    score+=quizEasy_Match(questionsMatch, score)
 
     if score>9:
+        print("\nHARD MODE  (5marks)\n")
         score+=quizHard_FIB(questionsFIB, score)
         score+=quizHard_Sub(questionsSub, score)
     else:
-        pass
+        score+=quizEasy2_MCQ(questionsMCQ, score)
+        score+=quizEasy2_TF(questionsTF, score)
+        
     
     print("Quiz completed! Your score is:", score)
+
     
-def Set1_MCQ(questionsMCQ, score):
+def quizEasy_MCQ(questionsMCQ, score):
     print("\nMutiple Choice Questions\n")
     
-    for count in range(1, 4):                    #only 3 questions are displayed
+    for count in range(1, 4):                    
         questionsNo=random.choices(range(len(questionsMCQ)), k=3)
         for index in questionsNo:
             question, options, answer = questionsMCQ[index]
@@ -109,9 +130,13 @@ def Set1_MCQ(questionsMCQ, score):
             else:
                 print("Incorrect.\n")
                 break
+
+            del questionsMCQ[index]        #doesnt same question repeated at next set
+            break
+
     return score
 
-def Set1_TF(questionsTF, score):
+def quizEasy_TF(questionsTF, score):
     print("\nTRUE OR FALSE QUESTIONS\n")
     
     for count in range(1, 4, 1):
@@ -127,18 +152,22 @@ def Set1_TF(questionsTF, score):
             else:
                 print("Incorrect.\n")
                 break
+
+            del questionsTF[index]        
+            break
+        
     return score
 
-def Set1_Match(questionMatch, score):   #taktahu!!!
+def quizEasy_Match(questionsMatch, score):   
     print("\nMatching Questions\n")
     print("Match the statements <1,2,3> correctly to their answers <A,B,C>.")
     
     for count in range (1, 4, 1):
-        questionsNo=random.choices(range(len(questionsTF)), k=3)
+        questionsNo=random.choices(range(len(questionsMatch)), k=3)
         for index in questionsNo:
             question, answer = questionsMatch[index]
             print(question, count, answer)
-            userAnswer=input("(",count,") : ").upper()
+            userAnswer=input("Answer: ").upper()
             if userAnswer == answer:
                 score+=2
                 print("Correct!")
@@ -146,18 +175,21 @@ def Set1_Match(questionMatch, score):   #taktahu!!!
             else:
                 print("Incorrect.")
                 break
+
+            del questionsMatch[index]        
+            break
+        
     return score
 
 
 def quizHard_FIB(questionsFIB, score):
-    print("\nHARD MODE\n")
-    print("Fill in the blanks.\n")
+    print("\nFill in the blanks.\n")
 
     for count in range (1, 4):
         questionsNo=random.choices(range(len(questionsFIB)), k=3)
         for index in questionsNo:
             question, answer = questionsFIB[index]
-            print(count, ".", question, "_" * len(answer))
+            print(count, ".", question)
             userAnswer = input("Answer: ").lower()
             if userAnswer == answer:
                 score+=5
@@ -166,13 +198,17 @@ def quizHard_FIB(questionsFIB, score):
             else:
                 print("Incorrect.")
                 break
+
+            del questionsFIB[index]        
+            break
+        
     return score
 
 def quizHard_Sub(questionsSub, score):
     print("\nSubjective Questions\n")
 
     for count in range (1, 4):
-        questionsNo = random.choices(range(len(questionsFIB)), k=3)
+        questionsNo = random.choices(range(len(questionsSub)), k=3)
         for index in questionsNo:
             question, answer = questionsSub[index]
             print(count, ".", question)
@@ -184,9 +220,54 @@ def quizHard_Sub(questionsSub, score):
             else:
                 print("Incorrect.")
                 break
+
+            del questionsSub[index]        
+            break
+        
     return score
+
+
+def quizEasy2_MCQ(questionsMCQ, score):
+    print("\nMutiple Choice Questions\n")
     
+    for count in range(1, 3):                    
+        questionsNo=random.choices(range(len(questionsMCQ)), k=2)
+        for index in questionsNo:
+            question, options, answer = questionsMCQ[index]
+            print(count, ".", question)
+            for option in options:
+                print(option)
+            userAnswer = input("\nEnter your answer <A, B, C, D>: ").upper()
+            if userAnswer == answer:
+                score += 2
+                print("Correct!\n")
+                break
+            else:
+                print("Incorrect.\n")
+                break
+
+    return score
+
+def quizEasy2_TF(questionsTF, score):
+    print("\nTRUE OR FALSE QUESTIONS\n")
+    
+    for count in range(1, 3):
+        questionsNo=random.choices(range(len(questionsTF)), k=2)
+        for index in questionsNo:
+            question, answer = questionsTF[index]
+            print(count, ".", question)
+            userAnswer=input("Enter your answer <True/False>: ").lower()
+            if userAnswer == answer:
+                score += 2
+                print("Correct!\n")
+                break
+            else:
+                print("Incorrect.\n")
+                break
+
+    return score
+
             
 
-quizEasy_Set1(questionsMCQ, questionsTF, questionsMatch, questionsFIB, questionsSub)
+quizEasy(questionsMCQ, questionsTF, questionsMatch, questionsFIB, questionsSub)
 
