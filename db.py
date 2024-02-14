@@ -11,7 +11,7 @@ from os import getcwd
 CWD = getcwd()
 
 # Path to file where the users data are stored
-USER_DATA_FILE = f"{CWD}\data\users.txt"
+USER_DATA_FILE = f"{CWD}\data\\users.txt"
 
 # Path to folder containing all questions
 QUESTIONS_FOLDER = f"{CWD}\questions"
