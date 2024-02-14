@@ -65,7 +65,7 @@ def quizEasy_MCQ(questionsMCQ: list, score):
 def quizEasy_TF(questionsTF, score):
     print("\nTRUE OR FALSE QUESTIONS\n")
     
-    for count in range(1, 4, 1):
+    for count in range(1, 4):
         questionsNo = random.choices(range(len(questionsTF)), k=3)
 
         # Remove picked questions so it doesn't repeat
@@ -91,7 +91,7 @@ def quizEasy_Match(questionsMatch, score):
     print("\nMatching Questions\n")
     print("Match the statements <1,2,3> correctly to their answers <A,B,C>.")
     
-    for count in range (1, 4, 1):
+    for count in range (1, 4):
         questionsNo=random.choices(range(len(questionsMatch)), k=3)
         for index in questionsNo:
             question, answer = questionsMatch[index]
