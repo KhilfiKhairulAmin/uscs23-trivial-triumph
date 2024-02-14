@@ -1,6 +1,6 @@
 # TODO Make home menu
 
-from menus import main_menu, sign_up_menu, login_menu, home_menu
+from components.menus import main_menu, sign_up_menu, login_menu, home_menu
 
 
 def main():
