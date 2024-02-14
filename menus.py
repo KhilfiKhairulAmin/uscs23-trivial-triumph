@@ -55,6 +55,7 @@ def sign_up_menu():
   display_header()
   center("Sign Up\n")
 
+  global Users, CurUser
   while True:
     try:
       username = prompt("Username: ")
@@ -62,7 +63,6 @@ def sign_up_menu():
       repeat_password = prompt("Repeat password: ", hidden=True)
       auth.sign_up(username, password, repeat_password, Users)  # Validate the input data for sign up
       # Add the new user
-      global Users, CurUser
       Users[username] = [password, -1]
       CurUser = username
       # Save the updated data
