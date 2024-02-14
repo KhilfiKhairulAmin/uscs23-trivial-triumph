@@ -5,9 +5,9 @@ Provide all functions for menus
 """
 
 
-import auth
-import db
-from ui import display_header, center, error, prompt, prompt_choice, display_header_cinematic
+import components.auth as auth
+import components.db as db
+from components.ui import display_header, center, error, prompt, prompt_choice, display_header_cinematic
 
 
 # Global variable storing the username of current user (need log in first)
@@ -60,7 +60,7 @@ def sign_up_menu():
     try:
       username = prompt("Username: ")
       password = prompt("Password: ", hidden=True)
-      repeat_password = prompt("Repeat password: ", hidden=True)
+      repeat_password = prompt("Repeat password: ", hidden=True, input_width=24)
       auth.sign_up(username, password, repeat_password, Users)  # Validate the input data for sign up
       # Add the new user
       Users[username] = [password, -1]
@@ -110,4 +110,30 @@ def home_menu():
   display_header(subtitle=f"Welcome {CurUser}!")
 
   while True:
-    pass
+    # Prompt message
+    center("Home Menu\n")
+    center("<1> Start Quiz ")
+    center("<2> Leaderboard")
+    center("<3> Logout     ")
+    center()
+    choice = prompt_choice(">", choices=[1, 2, 3])
+
+    if choice == 1:
+      return 4  # Go to quiz menu
+    elif choice == 2:
+      return 5  # Go to leaderboard menu
+    elif choice == 3:
+      CurUser = ""  # Reset current user due to logout
+      return 0  # Back to main menu
+    
+  
+def quiz_menu():
+  pass
+
+
+def leaderboard_menu():
+  pass
+
+
+def exit_menu():
+  pass
