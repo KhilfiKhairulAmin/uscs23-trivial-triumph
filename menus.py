@@ -1,6 +1,13 @@
+"""
+Program: menus.py
+Author: Khilfi
+Provide all functions for menus
+"""
+
+
 import auth
 import db
-from ui import display_header, center, error, prompt, display_header_cinematic
+from ui import display_header, center, error, prompt, prompt_choice, display_header_cinematic
 
 
 # Global variable storing the username of current user (need log in first)
@@ -16,21 +23,14 @@ def main_menu():
   """
   # Display header of main menu
   display_header_cinematic()
+
+  # Prompt message
   center("Do you want to register or login?\n")
   center("[1] Register    [2] Login    [3] Quit\n")
 
   while True:
     try:
-      choice = prompt(">", input_width=2)
-
-      # Choice must be integer
-      if not choice.isdigit():
-        raise ValueError("Please enter a number")
-
-      # Choice must be between 1 and 3
-      choice = int(choice)
-      if choice < 1 or choice > 3:
-        raise ValueError("Invalid choice")
+      choice = prompt_choice(">", choices=[1, 2, 3])
       
       if choice == 1:
         return 1  # Go to sign up
@@ -61,9 +61,10 @@ def sign_up_menu():
       password = prompt("Password: ", hidden=True)
       repeat_password = prompt("Repeat password: ", hidden=True)
       auth.sign_up(username, password, repeat_password, Users)  # Validate the input data for sign up
-
       # Add the new user
+      global Users, CurUser
       Users[username] = [password, -1]
+      CurUser = username
       # Save the updated data
       db.save_users_data(Users)
     # Go to home menu
@@ -88,7 +89,6 @@ def login_menu():
       username = prompt("Username: ")
       password = prompt("Password: ", hidden=True)
       auth.log_in(username, password, Users)  # Validate the input data for sign up
-
       # Update the global variables
       global CurUser
       CurUser = username
@@ -106,6 +106,7 @@ def home_menu():
   Home menu
   """
   # Display header of home menu
+  global CurUser
   display_header(subtitle=f"Welcome {CurUser}!")
 
   while True:
