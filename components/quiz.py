@@ -41,10 +41,6 @@ def quizEasy_MCQ(questionsMCQ: list, score):
     for count in range(1, 4):              
         questionsNo = random.choices(range(len(questionsMCQ)), k=3)
 
-        # Remove picked questions so it doesn't repeat
-        for picked in questionsNo:
-            questionsMCQ.pop(picked)
-
         for index in questionsNo:
             question, options, answer = questionsMCQ[index]
             print(count, ".", question)
@@ -59,6 +55,10 @@ def quizEasy_MCQ(questionsMCQ: list, score):
                 print("Incorrect.\n")
                 break
 
+        # Remove picked questions so it doesn't repeat
+        for picked in questionsNo:
+            questionsMCQ.pop(picked)
+
     return score
 
 
@@ -67,10 +67,6 @@ def quizEasy_TF(questionsTF, score):
     
     for count in range(1, 4):
         questionsNo = random.choices(range(len(questionsTF)), k=3)
-
-        # Remove picked questions so it doesn't repeat
-        for picked in questionsNo:
-            questionsTF.pop(picked)
         
         for index in questionsNo:
             question, answer = questionsTF[index]
@@ -83,6 +79,10 @@ def quizEasy_TF(questionsTF, score):
             else:
                 print("Incorrect.\n")
                 break
+
+        # Remove picked questions so it doesn't repeat
+        for picked in questionsNo:
+            questionsTF.pop(picked)
         
     return score
 
