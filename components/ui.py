@@ -53,6 +53,7 @@ def center(text="", end="\n"):
   Print text on the center of the terminal
   """
   print(text.center(WIDTH), end=end)
+  sleep(0.1)
 
 
 def fill(char):
@@ -93,7 +94,10 @@ def display_header(subtitle="Welcome to Trivial Triumph!"):
   Display Trivial Triumph remarkable header
   """
   clear()
-  print(TRIVIAL_TRIUMPH_ASCII_ART)
+  print(TRIVIAL_ASCII_ART)
+  sleep(0.1)
+  print(TRIUMPH_ASCII_ART)
+  sleep(0.1)
   center(f"{subtitle}\n")
   fill("*")
   print()
