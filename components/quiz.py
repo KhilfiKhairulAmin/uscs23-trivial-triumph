@@ -35,11 +35,16 @@ def quizEasy(questionsMCQ, questionsTF, questionsMatch, questionsFIB, questionsS
     print("Quiz completed! Your score is:", score)
 
     
-def quizEasy_MCQ(questionsMCQ, score):
+def quizEasy_MCQ(questionsMCQ: list, score):
     print("\nMutiple Choice Questions\n")
     
-    for count in range(1, 4):                    
-        questionsNo=random.choices(range(len(questionsMCQ)), k=3)
+    for count in range(1, 4):              
+        questionsNo = random.choices(range(len(questionsMCQ)), k=3)
+
+        # Remove picked questions so it doesn't repeat
+        for picked in questionsNo:
+            questionsMCQ.remove(picked)
+
         for index in questionsNo:
             question, options, answer = questionsMCQ[index]
             print(count, ".", question)
@@ -54,20 +59,23 @@ def quizEasy_MCQ(questionsMCQ, score):
                 print("Incorrect.\n")
                 break
 
-            del questionsMCQ[index]        #doesnt same question repeated at next set
-            break
-
     return score
+
 
 def quizEasy_TF(questionsTF, score):
     print("\nTRUE OR FALSE QUESTIONS\n")
     
     for count in range(1, 4, 1):
-        questionsNo=random.choices(range(len(questionsTF)), k=3)
+        questionsNo = random.choices(range(len(questionsTF)), k=3)
+
+        # Remove picked questions so it doesn't repeat
+        for picked in questionsNo:
+            questionsTF.remove(picked)
+        
         for index in questionsNo:
             question, answer = questionsTF[index]
             print(count, ".", question)
-            userAnswer=input("Enter your answer <True/False>: ").lower()
+            userAnswer = input("Enter your answer <True/False>: ").lower()
             if userAnswer == answer:
                 score += 2
                 print("Correct!\n")
@@ -75,11 +83,9 @@ def quizEasy_TF(questionsTF, score):
             else:
                 print("Incorrect.\n")
                 break
-
-            del questionsTF[index]        
-            break
         
     return score
+
 
 def quizEasy_Match(questionsMatch, score):   
     print("\nMatching Questions\n")
