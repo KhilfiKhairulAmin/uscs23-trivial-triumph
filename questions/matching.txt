@@ -1,41 +1,23 @@
-precedent1 -> consequent1
-precedent2 -> consequent2
-precedent3 -> consequent3
-answer1
-answer2
-answer3
+statement1 -> answer1  # Randomize the answer order each time this question is picked
+statement2 -> answer2
+statement3 -> answer3
 
-Film featuring a young boy befriending an alien -> Pirates of the Caribbean
-The movie franchise follows the adventures of a pirate named Jack Sparrow -> E.T. the Extra-Terrestrial
+Film featuring a young boy befriending an alien -> E.T. the Extra-Terrestrial
+The movie franchise follows the adventures of a pirate named Jack Sparrow -> Pirates of the Caribbean
 A clownfish embark on a journey to find his son -> Finding Nemo
-12
-21
-33
 
-Capital city of France -> Pacific Ocean
-Land of the Rising Sun -> Paris
-Capital city of France -> Japan
-12
-23
-31
+Capital city of France -> Paris
+Land of the Rising Sun -> Japan
+The largest ocean -> Pacific Ocean
 
-National symbol of U.S.A. -> Cheetah
+National symbol of U.S.A. -> Bald Eagle
 Fastest land animal -> Ostrich
 Largest bird species -> Bald Eagle
-13
-21
-32
 
-Longest river in the world -> Atacama Desert
+Longest river in the world -> Nile River
 European city divided by Bosphorus Strait -> Istanbul
-Driest Place on Earth -> Nile River
-13
-22
-31
+Driest Place on Earth -> Atacama Desert
 
 Black and white coated mammal -> Zebra
 Largest bear species -> Polar bear
 It can mimic human speech -> Parrot
-11
-22
-33
