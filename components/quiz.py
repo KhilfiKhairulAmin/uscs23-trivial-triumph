@@ -87,7 +87,7 @@ def quizEasy_TF(questionsTF, score):
 
 
 def quizEasy_Match(questionsMatch: list, score):   
-    print("\nMACHING QUESTIONS\n")
+    print("\nMATCHING QUESTIONS\n")
     print("Match the statements <A,B,C> correctly to their answers <1,2,3>.\n")
 
     questionsNo = random.randint(0, len(questionsMatch)-1)
@@ -110,8 +110,8 @@ def quizEasy_Match(questionsMatch: list, score):
     print()
 
     for j in range(3):
-        answer = int(input(f"{char_map[j+1]} -> "))
-        if answer == correct_answers[j]:
+        answer = input(f"{char_map[j+1]} -> ")
+        if answer == str(correct_answers[j]):
             print("Correct!")
             score += 2
         else:
