@@ -16,7 +16,7 @@ ASCII_ART_WIDTH = 84
 LEFT_PADDING = " " * ((WIDTH - ASCII_ART_WIDTH) // 2)
 
 # Source: https://patorjk.com/software/taag/#p=display&v=2&f=Delta%20Corps%20Priest%201&t=TRIVIAL%0ATRIUMPH
-TRIVIAL_ASCII_ART = f"""
+TRIVIAL_ASCII_ART = f"""\033[93m
 {LEFT_PADDING}           ███        ▄████████  ▄█   ▄█    █▄   ▄█     ▄████████  ▄█                       
 {LEFT_PADDING}       ▀█████████▄   ███    ███ ███  ███    ███ ███    ███    ███ ███                       
 {LEFT_PADDING}          ▀███▀▀██   ███    ███ ███▌ ███    ███ ███▌   ███    ███ ███                       
@@ -26,8 +26,8 @@ TRIVIAL_ASCII_ART = f"""
 {LEFT_PADDING}           ███       ███    ███ ███  ███    ███ ███    ███    ███ ███▌    ▄                 
 {LEFT_PADDING}          ▄████▀     ███    ███ █▀    ▀██████▀  █▀     ███    █▀  █████▄▄██                 
 {LEFT_PADDING}                     ███    ███                                   ▀             
-"""
-TRIUMPH_ASCII_ART = f"""
+\033[00m"""
+TRIUMPH_ASCII_ART = f"""\033[93m
 {LEFT_PADDING}    ███        ▄████████  ▄█  ███    █▄    ▄▄▄▄███▄▄▄▄      ▄███████▄    ▄█    █▄    
 {LEFT_PADDING}▀█████████▄   ███    ███ ███  ███    ███ ▄██▀▀▀███▀▀▀██▄   ███    ███   ███    ███   
 {LEFT_PADDING}   ▀███▀▀██   ███    ███ ███▌ ███    ███ ███   ███   ███   ███    ███   ███    ███   
@@ -37,7 +37,7 @@ TRIUMPH_ASCII_ART = f"""
 {LEFT_PADDING}    ███       ███    ███ ███  ███    ███ ███   ███   ███   ███          ███    ███   
 {LEFT_PADDING}   ▄████▀     ███    ███ █▀   ████████▀   ▀█   ███   █▀   ▄████▀        ███    █▀    
 {LEFT_PADDING}              ███    ███                                                             
-"""
+\033[00m"""
 TRIVIAL_TRIUMPH_ASCII_ART = TRIVIAL_ASCII_ART + TRIUMPH_ASCII_ART
 
 def clear():

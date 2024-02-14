@@ -1,6 +1,6 @@
 # TODO Make home menu
 
-from components.menus import main_menu, sign_up_menu, login_menu, home_menu
+from components.menus import main_menu, sign_up_menu, login_menu, home_menu, quiz_menu, leaderboard_menu, exit_menu
 
 
 def main():
@@ -17,7 +17,12 @@ def main():
       state = login_menu()
     elif state == 3:
       state = home_menu()
+    elif state == 4:
+      quiz_menu()
+    elif state == 5:
+      leaderboard_menu()
     elif state == -1:
+      exit_menu()
       break
 
 
