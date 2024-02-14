@@ -1,4 +1,3 @@
-# TODO Make handler for going back to previous state
 # TODO Make home page
 
 import auth
