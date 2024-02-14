@@ -89,32 +89,18 @@ def quizEasy_TF(questionsTF, score):
 
 def quizEasy_Match(questionsMatch: list, score):   
     print("\nMatching Questions\n")
-    print("Match the statements <A,B,C> correctly to their answers <1,2,3>.")
+    print("Match the statements <A,B,C> correctly to their answers <1,2,3>.\n")
 
     questionsNo = random.randint(0, len(questionsMatch)-1)
 
+    # Display matching boxes
+    match = questionsMatch[questionsNo]
+    print("%30s (A)   (1) %-30s" % match[0])
+    print("%30s (B)   (2) %-30s" % match[1])
+    print("%30s (C)   (3) %-30s" % match[2])
+
     # Remove picked question so it doesn't repeat
     questionsMatch.pop(questionsNo)
-
-    # Display matching boxes
-    for match in questionsMatch:
-        print("%-30    %30" % match)
-
-    
-    
-    for count in range (1, 4):
-        questionsNo = random.choices(range(len(questionsMatch)), k=3)
-        for index in questionsNo:
-            question, answer = questionsMatch[index]
-            print(question, count, answer)
-            userAnswer=input("Answer: ").upper()
-            if userAnswer == answer:
-                score+=2
-                print("Correct!")
-                break
-            else:
-                print("Incorrect.")
-                break
         
     return score
 
