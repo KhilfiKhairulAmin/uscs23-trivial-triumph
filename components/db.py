@@ -24,12 +24,15 @@ def get_users_data():
   try:
     # Open the database file
     f = open(USER_DATA_FILE, "r")
+
   except FileNotFoundError:
+
     # When file is not found, create new file
     new_f = open(USER_DATA_FILE, "w")
     new_f.write("username,password,scores\n")
     new_f.close()
     f = open(USER_DATA_FILE, "r")
+
   next(f)  # Skip the 1st line, which is the data header (see users.txt file for reference)
   
   users = {}
@@ -100,6 +103,67 @@ def load_tf_questions():
     return tf
 
 
+def load_matching_questions():
+    """
+    Read matching questions in matching.txt
+    """
+    f = open(f"{QUESTIONS_FOLDER}\matching.txt")
+        
+    for _ in range(3):
+        next(f)
+
+    matchings = []
+    for _ in f:  # Read three questions and answers
+        m = []
+        for _ in range(3):
+            question, correct_answer = next(f).strip().split(" -> ")
+            m.append((question, correct_answer))
+        matchings.append(m)
+
+    return matchings
+
+
+def load_FIB_questions():
+    """
+    Read fill in the blank questions in FIB.txt
+    """
+    f = open(f"{QUESTIONS_FOLDER}\FIB.txt")
+
+    for _ in range (2):
+        next(f)
+
+    FIB = []
+    for _ in f:
+        question = next(f).strip()
+        correct_answers = next(f).strip().split(",")
+        FIB.append((question, correct_answers))
+
+    return FIB
+
+
+def load_sub_questions():
+    """
+    Read subjective questions in sub.txt
+    """
+    f = open(f"{QUESTIONS_FOLDER}\sub.txt")
+
+    for _ in range (2):
+        next(f)
+
+    sub = []
+    for _ in f:
+        question = next(f).strip()
+        correct_answer = next(f).strip()
+        sub.append((question, correct_answer))
+
+    return sub
+
+
 if __name__ == "__main__":
   save_users_data({'yasmin': ['yasmin', 67, 100], 'khilfi': ['khilfi', -1], 'irfan': ['izerith', -1]})
   get_users_data()
+  print(load_mcq_questions(), end="\n\n\n")
+  print(load_tf_questions(), end="\n\n\n")
+  print(load_matching_questions(), end="\n\n\n")
+  print(load_FIB_questions(), end="\n\n\n")
+  print(load_sub_questions(), end="\n\n\n")
