@@ -93,11 +93,30 @@ def quizEasy_Match(questionsMatch: list, score):
 
     questionsNo = random.randint(0, len(questionsMatch)-1)
 
-    # Display matching boxes
     match = questionsMatch[questionsNo]
-    print("%30s (A)   (1) %-30s" % match[0])
-    print("%30s (B)   (2) %-30s" % match[1])
-    print("%30s (C)   (3) %-30s" % match[2])
+    correct_answers = [1, 2, 3]
+    random.shuffle(correct_answers)
+
+    question_map = {
+        correct_answers[0]: match[0][1],
+        correct_answers[1]: match[1][1],
+        correct_answers[2]: match[2][1],
+    }
+
+    char_map = { 1: "A", 2: "B", 3: "C" }
+
+    # Display matching boxes
+    for i in range(3):
+        print(f"%45s ({char_map[i+1]})\t({i+1}) %-45s" % (match[i][0], question_map[i+1]))
+    print()
+
+    for j in range(3):
+        answer = int(input(f"{char_map[j+1]} -> "))
+        if answer == correct_answers[j]:
+            print("Correct!")
+            score += 2
+        else:
+            print("Incorrect!")
 
     # Remove picked question so it doesn't repeat
     questionsMatch.pop(questionsNo)
