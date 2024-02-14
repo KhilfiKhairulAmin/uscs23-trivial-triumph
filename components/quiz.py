@@ -10,13 +10,6 @@ from db import load_mcq_questions, load_tf_questions, load_matching_questions, l
 import random
 
 
-questionsMCQ = load_mcq_questions()
-questionsTF = load_tf_questions()
-questionsMatch = load_matching_questions()
-questionsFIB = load_FIB_questions()
-questionsSub = load_sub_questions()
-
-
 def quizEasy(questionsMCQ, questionsTF, questionsMatch, questionsFIB, questionsSub):
     score=0
     score+=quizEasy_MCQ(questionsMCQ, score)
@@ -56,7 +49,7 @@ def quizEasy_MCQ(questionsMCQ: list, score):
                 break
 
         # Remove picked questions so it doesn't repeat
-        for picked in questionsNo:
+        for picked in sorted(questionsNo, reverse=True):
             questionsMCQ.pop(picked)
 
     return score
@@ -81,14 +74,14 @@ def quizEasy_TF(questionsTF, score):
                 break
 
         # Remove picked questions so it doesn't repeat
-        for picked in questionsNo:
+        for picked in sorted(questionsNo, reverse=True):
             questionsTF.pop(picked)
         
     return score
 
 
 def quizEasy_Match(questionsMatch: list, score):   
-    print("\nMatching Questions\n")
+    print("\nMACHING QUESTIONS\n")
     print("Match the statements <A,B,C> correctly to their answers <1,2,3>.\n")
 
     questionsNo = random.randint(0, len(questionsMatch)-1)
@@ -209,7 +202,16 @@ def quizEasy2_TF(questionsTF, score):
 
     return score
 
+
+questionsMCQ   = load_mcq_questions()
+questionsTF    = load_tf_questions()
+questionsMatch = load_matching_questions()
+questionsFIB   = load_FIB_questions()
+questionsSub   = load_sub_questions()
+
             
 # quizEasy(questionsMCQ, questionsTF, questionsMatch, questionsFIB, questionsSub)
 if __name__ == "__main__":
+    quizEasy_MCQ(questionsMCQ, score=0)
+    quizEasy2_TF(questionsTF, score=0)
     quizEasy_Match(questionsMatch, score=0)
