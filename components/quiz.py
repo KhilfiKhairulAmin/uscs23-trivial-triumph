@@ -10,19 +10,25 @@ from db import load_mcq_questions, load_tf_questions, load_matching_questions, l
 import random
 
 
-def quizEasy(questionsMCQ, questionsTF, questionsMatch, questionsFIB, questionsSub):
-    score=0
-    score+=quizEasy_MCQ(questionsMCQ, score)
-    score+=quizEasy_TF(questionsTF, score)
-    score+=quizEasy_Match(questionsMatch, score)
+def quizEasy():
+    questionsMCQ   = load_mcq_questions()
+    questionsTF    = load_tf_questions()
+    questionsMatch = load_matching_questions()
+    questionsFIB   = load_FIB_questions()
+    questionsSub   = load_sub_questions()
+
+    score = 0
+    score += quizEasy_MCQ(questionsMCQ, score)
+    score += quizEasy_TF(questionsTF, score)
+    score += quizEasy_Match(questionsMatch, score)
 
     if score>9:
         print("\nHARD MODE  (5marks)\n")
-        score+=quizHard_FIB(questionsFIB, score)
-        score+=quizHard_Sub(questionsSub, score)
+        score += quizHard_FIB(questionsFIB, score)
+        score += quizHard_Sub(questionsSub, score)
     else:
-        score+=quizEasy2_MCQ(questionsMCQ, score)
-        score+=quizEasy2_TF(questionsTF, score)
+        score += quizEasy2_MCQ(questionsMCQ, score)
+        score += quizEasy2_TF(questionsTF, score)
         
     
     print("Quiz completed! Your score is:", score)
@@ -202,16 +208,7 @@ def quizEasy2_TF(questionsTF, score):
 
     return score
 
-
-questionsMCQ   = load_mcq_questions()
-questionsTF    = load_tf_questions()
-questionsMatch = load_matching_questions()
-questionsFIB   = load_FIB_questions()
-questionsSub   = load_sub_questions()
-
             
 # quizEasy(questionsMCQ, questionsTF, questionsMatch, questionsFIB, questionsSub)
 if __name__ == "__main__":
-    quizEasy_MCQ(questionsMCQ, score=0)
-    quizEasy2_TF(questionsTF, score=0)
-    quizEasy_Match(questionsMatch, score=0)
+    quizEasy()
