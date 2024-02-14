@@ -94,9 +94,9 @@ def display_header(subtitle="Welcome to Trivial Triumph!"):
   Display Trivial Triumph remarkable header
   """
   clear()
-  print(TRIVIAL_ASCII_ART)
+  print(TRIVIAL_ASCII_ART, end="")
   sleep(0.1)
-  print(TRIUMPH_ASCII_ART)
+  print(TRIUMPH_ASCII_ART, end="")
   sleep(0.1)
   center(f"{subtitle}\n")
   fill("*")
