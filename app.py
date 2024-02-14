@@ -1,3 +1,7 @@
+# TODO Create quiz interface for MCQ,TF
+# TODO Test quiz functions for MATCH,SUB,FIB
+# TODO Make leaderboard tracker
+
 from components.menus import main_menu, sign_up_menu, login_menu, home_menu, quiz_menu, leaderboard_menu, exit_menu
 
 
