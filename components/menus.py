@@ -7,6 +7,7 @@ Provide all functions for menus
 
 import components.auth as auth
 import components.db as db
+from components.quiz import quizEasy
 from components.ui import display_header, center, error, prompt, prompt_choice, display_header_cinematic
 
 
@@ -30,7 +31,7 @@ def main_menu():
 
   while True:
     try:
-      choice = prompt_choice(">", choices=[1, 2, 3])
+      choice = int(prompt_choice(">", choices=[1, 2, 3]))
       
       if choice == 1:
         return 1  # Go to sign up
@@ -112,11 +113,11 @@ def home_menu():
   while True:
     # Prompt message
     center("Home Menu\n")
-    center("<1> Start Quiz ")
-    center("<2> Leaderboard")
-    center("<3> Logout     ")
+    center("(1) Play       ")
+    center("(2) Leaderboard")
+    center("(3) Logout     ")
     center()
-    choice = prompt_choice(">", choices=[1, 2, 3])
+    choice = int(prompt_choice(">", choices=[1, 2, 3]))
 
     if choice == 1:
       return 4  # Go to quiz menu
@@ -128,7 +129,7 @@ def home_menu():
     
   
 def quiz_menu():
-  pass
+  quizEasy()
 
 
 def leaderboard_menu():
