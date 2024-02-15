@@ -130,6 +130,7 @@ def home_menu():
   
 def quiz_menu():
   countdown()
+  display_header(subtitle="Happy Answering!")
   quizEasy()
 
 
