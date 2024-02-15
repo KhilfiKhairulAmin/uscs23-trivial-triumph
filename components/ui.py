@@ -96,7 +96,7 @@ def display_header(subtitle="Welcome to Trivial Triumph!"):
   clear()
   print(TRIVIAL_ASCII_ART, end="")
   sleep(0.1)
-  print(TRIUMPH_ASCII_ART, end="")
+  print(TRIUMPH_ASCII_ART)
   sleep(0.1)
   center(f"{subtitle}\n")
   fill("*")
