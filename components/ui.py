@@ -126,3 +126,12 @@ def error(text=""):
   print("\033[91m", end="")
   center(f"{text}", end="")
   print("\033[00m\n")
+
+
+def success(text=""):
+  """
+  Print success message in green colour
+  """
+  print("\033[32m", end="")
+  center(f"{text}", end="")
+  print("\033[00m\n")
