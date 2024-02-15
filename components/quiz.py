@@ -12,7 +12,7 @@ import random
 
 
 def quizEasy():
-    clear()
+
     questionsMCQ   = load_mcq_questions()
     questionsTF    = load_tf_questions()
     questionsMatch = load_matching_questions()
@@ -24,11 +24,15 @@ def quizEasy():
     score += quizEasy_TF(questionsTF, number_of_questions=3)
     score += quizEasy_Match(questionsMatch, number_of_questions=3)
 
+    fill("*")
+    center()
+
     if score > 9:
-        print("\nHARD MODE  (5marks)\n")
+        center("HARD MODE  (5marks)", col="\033[91m")
         score += quizHard_FIB(questionsFIB, number_of_questions=3)
         score += quizHard_Sub(questionsSub, number_of_questions=3)
     else:
+        center("EASY MODE  (2marks)", col="\033[36m")
         score += quizEasy_MCQ(questionsMCQ, number_of_questions=2)
         score += quizEasy_TF(questionsTF, number_of_questions=2)
         score += quizEasy_Match(questionsMatch, number_of_questions=2)
@@ -37,7 +41,7 @@ def quizEasy():
 
     
 def quizEasy_MCQ(questionsMCQ: list, number_of_questions=3):
-    center("MULTIPLE CHOICE QUESTIONS", end="\n\n\n")
+    center("MULTIPLE CHOICE QUESTIONS", end="\n\n\n", col="\033[33m")
     
     score = 0
     for count in range(1, number_of_questions+1):              
@@ -51,7 +55,7 @@ def quizEasy_MCQ(questionsMCQ: list, number_of_questions=3):
 
         while True:
             try:
-                userAnswer = prompt_choice(prompt_message="Enter your answer <A, B, C, D>: ", choices=["A", "a", "B", "b", "C", "c", "D", "c"], input_width=2).lower()
+                userAnswer = prompt_choice(prompt_message="Enter your answer <A, B, C, D>: ", choices=["A", "a", "B", "b", "C", "c", "D", "d"], input_width=2).lower()
                 center()
                 break
             except ValueError as err:
@@ -70,7 +74,7 @@ def quizEasy_MCQ(questionsMCQ: list, number_of_questions=3):
 
 
 def quizEasy_TF(questionsTF: list, number_of_questions=3):
-    center("TRUE OR FALSE QUESTIONS", end="\n\n\n")
+    center("TRUE OR FALSE QUESTIONS", end="\n\n\n", col="\033[33m")
     
     score = 0
     for count in range(1, number_of_questions+1):
@@ -95,12 +99,12 @@ def quizEasy_TF(questionsTF: list, number_of_questions=3):
 
         # Remove picked questions so it doesn't repeat
         questionsTF.pop(questionsNo)
-        
+    
     return score
 
 
 def quizEasy_Match(questionsMatch: list, number_of_questions=3):   
-    center("MATCHING QUESTIONS", end="\n\n\n")
+    center("MATCHING QUESTIONS", end="\n\n\n", col="\033[33m")
 
     score = 0
     for count in range(1, number_of_questions+1):
@@ -149,12 +153,12 @@ def quizEasy_Match(questionsMatch: list, number_of_questions=3):
 
         # Remove picked question so it doesn't repeat
         questionsMatch.pop(questionsNo)
-        
+    
     return score
 
 
 def quizHard_FIB(questionsFIB, number_of_questions=3):
-    center("FILL IN THE BLANKS QUESTIONS", end="\n\n\n")
+    center("FILL IN THE BLANKS QUESTIONS", end="\n\n\n", col="\033[33m")
 
     score = 0
     for count in range (1, number_of_questions+1):
@@ -172,11 +176,10 @@ def quizHard_FIB(questionsFIB, number_of_questions=3):
         
         questionsFIB.pop(questionsNo)
 
-        
     return score
 
 def quizHard_Sub(questionsSub, number_of_questions=3):
-    center("SUBJECTIVE QUESTIONS", end="\n\n\n")
+    center("SUBJECTIVE QUESTIONS", end="\n\n\n", col="\033[33m")
 
     score = 0
     for count in range (1, number_of_questions+1):
@@ -193,7 +196,7 @@ def quizHard_Sub(questionsSub, number_of_questions=3):
             error("Incorrect.\n")
 
         questionsSub.pop(questionsNo)
-        
+
     return score
 
 
