@@ -48,11 +48,13 @@ def clear():
   os.system("cls")
 
 
-def center(text="", end="\n"):
+def center(text="", end="\n", col="\033[00m"):
   """
   Print text on the center of the terminal
   """
+  print(col, end="")
   print(text.center(WIDTH), end=end)
+  print("\033[00m", end="")
   sleep(0.1)
 
 
@@ -118,8 +120,7 @@ def error(text=""):
   """
   Print error message in red colour
   """
-  print("\033[91m", end="")
-  center(f"{text}", end="")
+  center(f"{text}", end="", col="\033[91m")
   print("\033[00m\n")
 
 
@@ -127,8 +128,7 @@ def success(text=""):
   """
   Print success message in green colour
   """
-  print("\033[32m", end="")
-  center(f"{text}", end="")
+  center(f"{text}", end="", col="\033[32m")
   print("\033[00m\n")
 
 
@@ -138,7 +138,7 @@ def countdown():
 
   clear()
   print("\033[33m")
-  SKIP_ROW = "\n" * 16
+  SKIP_ROW = "\n" * 3
   print(f"""{SKIP_ROW}          
   {LEFT_PADDING}  .--,-``-.     
   {LEFT_PADDING} /   /     '.   
