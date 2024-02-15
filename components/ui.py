@@ -137,7 +137,7 @@ def countdown():
   LEFT_PADDING = " " * ((WIDTH - 38) // 2)
 
   clear()
-  print("\033[32m")
+  print("\033[33m")
   SKIP_ROW = "\n" * 3
   print(f"""{SKIP_ROW}          
   {LEFT_PADDING}             .--,-``-.     
