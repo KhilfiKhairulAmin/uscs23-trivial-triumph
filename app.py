@@ -1,6 +1,14 @@
-# TODO Create quiz interface for MCQ,TF
-# TODO Test quiz functions for MATCH,SUB,FIB
-# TODO Make leaderboard tracker
+# TODO 15/5/2024
+# TODO Create quiz menu for MCQ,TF,MATCH,FIB,SUB (Khilfi)
+# TODO Make leaderboard tracker (YASMIN)
+
+# TODO 16/4/2024
+# TODO Help menu
+# TODO Quit menu
+# TODO Integrate Leaderboard menu
+
+# TODO Sometime later...
+# TODO Small Report about quiz app
 
 from components.menus import main_menu, sign_up_menu, login_menu, home_menu, quiz_menu, leaderboard_menu, exit_menu
 
