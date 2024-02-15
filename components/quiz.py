@@ -46,7 +46,7 @@ def quizEasy_MCQ(questionsMCQ: list, number_of_questions=3):
         print(count, ".", question)
         for option in options:
             print(option)
-        userAnswer = input("\nEnter your answer <A, B, C, D>: ").upper()
+        userAnswer = input("\nEnter your answer <A, B, C, D>: ").lower()
         if userAnswer == answer:
             score += 2
             print("Correct!\n")

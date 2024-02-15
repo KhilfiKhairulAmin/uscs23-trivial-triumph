@@ -1,6 +1,6 @@
 """
 Program: ui.py
-Author: Khilfi
+Author: Trivial Triumph Devs
 Provide custom functions to display text beautifully in the terminal
 """
 

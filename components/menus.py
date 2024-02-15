@@ -1,6 +1,6 @@
 """
 Program: menus.py
-Author: Khilfi
+Author: Trivial Triumph Devs
 Provide all functions for menus
 """
 

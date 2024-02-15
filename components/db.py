@@ -1,6 +1,6 @@
 """
 Program: db.py
-Author: Khilfi
+Author: Trivial Triumph Devs
 Provide interface for database operations in Trivial Triumph
 """
 
