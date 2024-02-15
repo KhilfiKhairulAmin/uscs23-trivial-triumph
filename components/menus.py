@@ -8,7 +8,7 @@ Provide all functions for menus
 import components.auth as auth
 import components.db as db
 from components.quiz import quizEasy
-from components.ui import countdown, display_header, center, error, prompt, prompt_choice, display_header_cinematic
+from components.ui import countdown, display_header, center, error, fill, prompt, prompt_choice, display_header_cinematic
 
 
 # Global variable storing the username of current user (need log in first)
@@ -129,9 +129,17 @@ def home_menu():
     
   
 def quiz_menu():
+  center("Trivial Triumph")
+  fill("*")
+  center()
+  center("You will answer 15 fun trivial questions.")
+  center("If you answer some of the first 9 questions correctly, you stand a chance on doubling marks in HARD MODE.")
+  center("There are MCQ, True/False, Matching, Fill The Blanks, and Subjective questions.", end="\n\n")
+  prompt("Press Enter when you're ready!", input_width=0)
   countdown()
   display_header(subtitle="Happy Answering!")
   quizEasy()
+  return 3
 
 
 def leaderboard_menu():

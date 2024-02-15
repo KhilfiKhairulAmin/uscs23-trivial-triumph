@@ -6,12 +6,15 @@ Provide quiz algorithms for handling quiz logics and scoring
 
 
 from components.db import load_mcq_questions, load_tf_questions, load_matching_questions, load_FIB_questions, load_sub_questions
-from components.ui import clear, display_header, center, error, fill, prompt, prompt_choice, display_header_cinematic, success
+from components.ui import clear, display_header, center, error, fill, good_game, prompt, prompt_choice, display_header_cinematic, success
 
 import random
+import time
 
 
 def quizEasy():
+
+    start = time.time()
 
     questionsMCQ   = load_mcq_questions()
     questionsTF    = load_tf_questions()
@@ -36,8 +39,18 @@ def quizEasy():
         score += quizEasy_MCQ(questionsMCQ, number_of_questions=2)
         score += quizEasy_TF(questionsTF, number_of_questions=2)
         score += quizEasy_Match(questionsMatch, number_of_questions=2)
-    
-    print("Quiz completed! Your score is:", score)
+
+    center("END OF QUIZ")
+    end = time.time()
+
+    good_game()
+    prompt("Press Enter to see result", hidden=True, input_width=0)
+    fill("%")
+    center()
+    center("RESULT", col="\033[33m", end="\n\n")
+    center(f"Quiz completed!\nYour score is: {score}")
+    center(f"Time taken: {int(end-start)} seconds")
+    prompt("Back to Main Menu", hidden=True, input_width=0)
 
     
 def quizEasy_MCQ(questionsMCQ: list, number_of_questions=3):

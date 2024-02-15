@@ -1,5 +1,4 @@
 # TODO 15/5/2024
-# TODO Create quiz menu for MCQ,TF,MATCH,FIB,SUB (Khilfi)
 # TODO Make leaderboard tracker (YASMIN)
 
 # TODO 16/4/2024
@@ -29,7 +28,7 @@ def main():
     elif state == 3:
       state = home_menu()
     elif state == 4:
-      quiz_menu()
+      state = quiz_menu()
     elif state == 5:
       leaderboard_menu()
     elif state == -1:
