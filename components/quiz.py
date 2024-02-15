@@ -147,7 +147,7 @@ def quizHard_FIB(questionsFIB, number_of_questions=3):
 
         question, answer = questionsFIB[questionsNo]
         center(f"{count}. {question}\n")
-        userAnswer = input("Answer: ").lower()
+        userAnswer = prompt("Answer: ", 10).lower()
         center()
         if userAnswer == answer:
             score += 5
@@ -169,7 +169,7 @@ def quizHard_Sub(questionsSub, number_of_questions=3):
 
         question, answer = questionsSub[questionsNo]
         center(f"{count}. {question}\n")
-        userAnswer = input("Answer: ").lower()
+        userAnswer = prompt("Answer: ", 10).lower()
         center()
         if userAnswer == answer:
             score += 5
