@@ -48,8 +48,15 @@ def quizEasy_MCQ(questionsMCQ: list, number_of_questions=3):
         for option in options:
             center(option)
         center()
-        userAnswer = prompt(prompt_message="Enter your answer <A, B, C, D>: ", input_width=2).lower()
-        center()
+
+        while True:
+            try:
+                userAnswer = prompt_choice(prompt_message="Enter your answer <A, B, C, D>: ", choices=["A", "a", "B", "b", "C", "c", "D", "c"], input_width=2).lower()
+                center()
+                break
+            except ValueError as err:
+                error(err)
+
         if userAnswer == answer:
             score += 2
             success("Correct!\n")
@@ -71,7 +78,15 @@ def quizEasy_TF(questionsTF: list, number_of_questions=3):
         
         question, answer = questionsTF[questionsNo]
         center(f"{count}. {question}\n")
-        userAnswer = prompt(prompt_message="Enter your answer <True/False>: ", input_width=6).lower()
+
+        while True:
+            try:
+                userAnswer = prompt_choice(prompt_message="Enter your answer <True/False>: ", choices=["True", "true", "False", "false"], input_width=6).lower()
+                center()
+                break
+            except ValueError as err:
+                error(err)
+
         if userAnswer == answer:
             score += 2
             success("Correct!\n")
