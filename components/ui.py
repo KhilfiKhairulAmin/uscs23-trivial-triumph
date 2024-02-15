@@ -130,3 +130,84 @@ def success(text=""):
   print("\033[32m", end="")
   center(f"{text}", end="")
   print("\033[00m\n")
+
+
+def countdown():
+  global WIDTH
+  LEFT_PADDING = " " * ((WIDTH - 38) // 2)
+
+  clear()
+  print("\033[33m")
+  SKIP_ROW = "\n" * 16
+  print(f"""{SKIP_ROW}          
+  {LEFT_PADDING}  .--,-``-.     
+  {LEFT_PADDING} /   /     '.   
+  {LEFT_PADDING}/ ../        ;  
+  {LEFT_PADDING}\ ``\  .`-    ' 
+  {LEFT_PADDING} \___\/   \   : 
+  {LEFT_PADDING}      \   :   | 
+  {LEFT_PADDING}      /  /   /  
+  {LEFT_PADDING}      \  \   \  
+  {LEFT_PADDING}  ___ /   :   | 
+  {LEFT_PADDING} /   /\   /   : 
+  {LEFT_PADDING}/ ,,/  ',-    . 
+  {LEFT_PADDING}\ ''\        ;  
+  {LEFT_PADDING} \   \     .'   
+  {LEFT_PADDING} `--`-,,-'          
+""")
+  sleep(1)
+  clear()
+  print(f"""{SKIP_ROW}          
+  {LEFT_PADDING}      ,----,   
+  {LEFT_PADDING}    .'   .' \  
+  {LEFT_PADDING}  ,----,'    | 
+  {LEFT_PADDING}  |    :  .  ; 
+  {LEFT_PADDING}  ;    |.'  /  
+  {LEFT_PADDING}  `----'/  ;   
+  {LEFT_PADDING}    /  ;  /    
+  {LEFT_PADDING}   ;  /  /-,   
+  {LEFT_PADDING}  /  /  /.`|   
+  {LEFT_PADDING}./__;      :   
+  {LEFT_PADDING}|   :    .'    
+  {LEFT_PADDING};   | .'       
+  {LEFT_PADDING}`---'              
+""")
+  sleep(1.2)
+  clear()
+  print(f"""{SKIP_ROW}
+  {LEFT_PADDING}     ,---, 
+  {LEFT_PADDING}  ,`--.' | 
+  {LEFT_PADDING} /    /  : 
+  {LEFT_PADDING}:    |.' ' 
+  {LEFT_PADDING}`----':  | 
+  {LEFT_PADDING}   '   ' ; 
+  {LEFT_PADDING}   |   | | 
+  {LEFT_PADDING}   '   : ; 
+  {LEFT_PADDING}   |   | ' 
+  {LEFT_PADDING}   '   : | 
+  {LEFT_PADDING}   ;   |.' 
+  {LEFT_PADDING}   '---'   
+  """)
+  sleep(1.2)
+  clear()
+  print(f"""{SKIP_ROW}
+  {LEFT_PADDING}                              ,---,  
+  {LEFT_PADDING}                ,----..    ,`--.' |  
+  {LEFT_PADDING}  ,----..       /   /   \   |   :  :  
+  {LEFT_PADDING}/   /   \     /   .     :  '   '  ;  
+  {LEFT_PADDING}|   :     :   .   /   ;.  \ |   |  |  
+  {LEFT_PADDING}.   |  ;. /  .   ;   /  ` ; '   :  ;  
+  {LEFT_PADDING}.   ; /--`   ;   |  ; \ ; | |   |  '  
+  {LEFT_PADDING};   | ;  __  |   :  | ; | ' '   :  |  
+  {LEFT_PADDING}|   : |.' .' .   |  ' ' ' : ;   |  ;  
+  {LEFT_PADDING}.   | '_.' : '   ;  \; /  | `---'. |  
+  {LEFT_PADDING}'   ; : \  |  \   \  ',  /   `--..`;  
+  {LEFT_PADDING}'   | '/  .'   ;   :    /   .--,_     
+  {LEFT_PADDING}|   :    /      \   \ .'    |    |`.  
+  {LEFT_PADDING}\   \ .'        `---`      `-- -`, ; 
+  {LEFT_PADDING}  `---`                       '---`"                              
+    """)
+  sleep(1)
+  clear()
+  print("\033[00m")
+
