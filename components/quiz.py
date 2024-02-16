@@ -135,11 +135,9 @@ def quizEasy_Match(questionsMatch: list, number_of_questions=3):
             correct_answers[2]: match[2][1],
         }
 
-        char_map = { 1: "A", 2: "B", 3: "C" }
-
         # Display matching boxes
         for i in range(3):
-            center(f"%80s ({char_map[i+1]})\t({i+1}) %-80s\n" % (match[i][0], question_map[i+1]))
+            center(f"%80s ({chr(65+i)})\t({i+1}) %-80s\n" % (match[i][0], question_map[i+1]))
         center()
 
         correct = 0
@@ -147,7 +145,7 @@ def quizEasy_Match(questionsMatch: list, number_of_questions=3):
 
             while True:
                 try:
-                    answer = prompt_choice(f"({char_map[j+1]}) -> ", choices=[1, 2, 3])
+                    answer = prompt_choice(f"({chr(65+i)}) -> ", choices=[1, 2, 3])
                     center()
                     break
                 except ValueError as err:
