@@ -116,15 +116,18 @@ def home_menu():
     center("Home Menu\n")
     center("(1) Play       ")
     center("(2) Leaderboard")
-    center("(3) Logout     ")
+    center("(3) Help       ")
+    center("(4) Logout     ")
     center()
-    choice = int(prompt_choice(">", choices=[1, 2, 3]))
+    choice = int(prompt_choice(">", choices=[1, 2, 3, 4]))
 
     if choice == 1:
       return 4  # Go to quiz menu
     elif choice == 2:
       return 5  # Go to leaderboard menu
     elif choice == 3:
+      return 6  # Go to help menu
+    elif choice == 4:
       CurUser = ""  # Reset current user due to logout
       return 0  # Back to main menu
     
@@ -175,6 +178,18 @@ def quiz_menu():
 
 def leaderboard_menu():
   pass
+
+
+def help_menu():
+  display_header("")
+  center("Controls", end="\n\n")
+  center("Navigate       -  [1, 2, 3, 4]      ")
+  center("Answer         -  [A..Z, a..z, 0..9]")
+  center("Proceed        -  [Enter]           ")
+  center("Back/Previous  -  [Ctrl + C]        ")
+  center()
+  prompt("Back to Home\n", hidden=True, input_width=1)
+  return 3  # Go to home menu
 
 
 def exit_menu():
