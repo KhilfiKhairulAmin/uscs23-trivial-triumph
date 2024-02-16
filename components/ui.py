@@ -78,12 +78,14 @@ def prompt_choice(prompt_message="", choices = [0, 1], input_width=2) -> str:
   Validate choice input
   """
   
-  choice = prompt(prompt_message, input_width)
+  while True:
+    choice = prompt(prompt_message, input_width)
 
-  if choice not in [str(choice) for choice in choices]:
-    raise ValueError("Invalid choice")
-  
-  return choice
+    if choice not in [str(choice) for choice in choices]:
+      error("Invalid choice")
+      continue
+    
+    return choice
 
 
 def display_header(subtitle="Welcome to Trivial Triumph!"):
