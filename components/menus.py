@@ -40,6 +40,7 @@ def main_menu():
   except KeyboardInterrupt:
     if exit_modal():
       return -1  # Quit the application
+    return 0
 
 
 def sign_up_menu():
@@ -119,6 +120,7 @@ def home_menu():
   except KeyboardInterrupt:
     if exit_modal():
       return -1  # Quit the application
+    return 3
   
   
 def quiz_menu():
