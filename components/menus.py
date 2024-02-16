@@ -12,6 +12,16 @@ from components.quiz import quizEasy
 from components.ui import clear, countdown, display_header, center, fill, good_game, prompt, prompt_choice, display_header_cinematic
 
 
+MAIN_MENU = 0
+SIGN_UP = 1
+LOGIN = 2
+HOME_MENU = 3
+QUIZ = 4
+LEADERBOARD = 5
+HELP = 6
+EXIT = -1
+
+
 # Global variable storing the username of current user (need log in first)
 CurUser = ""
 
@@ -34,13 +44,13 @@ def main_menu():
     choice = int(prompt_choice(">", choices=[1, 2]))
     
     if choice == 1:
-      return 1  # Go to sign up
+      return SIGN_UP  # Go to sign up
     elif choice == 2:
-      return 2  # Go to login
+      return LOGIN  # Go to login
   except KeyboardInterrupt:
     if exit_modal():
-      return -1  # Quit the application
-    return 0
+      return EXIT  # Quit the application
+    return MAIN_MENU
 
 
 def sign_up_menu():
@@ -66,8 +76,7 @@ def sign_up_menu():
 
     # Save the updated data
     db.save_users_data(Users)
-  # Go to home menu
-    return 3
+    return HOME_MENU  # Go to home menu
 
 
 def login_menu():
@@ -87,7 +96,7 @@ def login_menu():
     # Update the global variables
     global CurUser
     CurUser = username
-    return 3  # Go to home menu
+    return HOME_MENU  # Go to home menu
 
 
 def home_menu():
@@ -109,18 +118,18 @@ def home_menu():
 
     choice = int(prompt_choice(">", choices=[1, 2, 3, 4]))
     if choice == 1:
-      return 4  # Go to quiz menu
+      return QUIZ  # Go to quiz menu
     elif choice == 2:
-      return 5  # Go to leaderboard menu
+      return LEADERBOARD  # Go to leaderboard menu
     elif choice == 3:
-      return 6  # Go to help menu
+      return HELP  # Go to help menu
     elif choice == 4:
       CurUser = ""  # Reset current user due to logout
-      return 0  # Back to main menu
+      return MAIN_MENU  # Back to main menu
   except KeyboardInterrupt:
     if exit_modal():
-      return -1  # Quit the application
-    return 3
+      return EXIT  # Quit the application
+    return HOME_MENU
   
   
 def quiz_menu():
@@ -164,7 +173,7 @@ def quiz_menu():
   center(f"Time taken: {time_taken} seconds", end="\n\n")
   fill("*")
   prompt("Back to Home...\n", hidden=True, input_width=0)
-  return 3  # Go to home menu
+  return HOME_MENU  # Go to home menu
 
 
 def leaderboard_menu():
@@ -180,7 +189,7 @@ def help_menu():
   center("Back/Previous  -  [Ctrl + C]        ")
   center()
   prompt("Back to Home...\n", hidden=True, input_width=1)
-  return 3  # Go to home menu
+  return HOME_MENU  # Go to home menu
 
 
 def exit_menu():

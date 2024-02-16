@@ -8,7 +8,8 @@
 # TODO Small Report about quiz app
 # TODO Update README file
 
-from components.menus import exit_menu, help_menu, main_menu, sign_up_menu, login_menu, home_menu, quiz_menu, leaderboard_menu, exit_modal
+from components.menus import exit_menu, help_menu, main_menu, sign_up_menu, login_menu, home_menu, quiz_menu, leaderboard_menu, \
+                             MAIN_MENU, SIGN_UP, LOGIN, HOME_MENU, QUIZ, LEADERBOARD, HELP, EXIT
 
 
 def main():
@@ -20,26 +21,33 @@ def main():
 
   while True:
     try:
-        if cur_menu == 0:
+        if cur_menu == MAIN_MENU:
           cur_menu = main_menu()  # Parent menu 1
-        elif cur_menu == 1:
-          prev_menu = 0
+        
+        elif cur_menu == SIGN_UP:
+          prev_menu = MAIN_MENU
           cur_menu = sign_up_menu()
-        elif cur_menu == 2:
-          prev_menu = 0
+        
+        elif cur_menu == LOGIN:
+          prev_menu = MAIN_MENU
           cur_menu = login_menu()
-        elif cur_menu == 3:
+
+        elif cur_menu == HOME_MENU:
           cur_menu = home_menu()  # Parent menu 2
-        elif cur_menu == 4:
-          prev_menu = 3
+
+        elif cur_menu == QUIZ:
+          prev_menu = HOME_MENU
           cur_menu = quiz_menu()
-        elif cur_menu == 5:
-          prev_menu = 3
+
+        elif cur_menu == LEADERBOARD:
+          prev_menu = HOME_MENU
           leaderboard_menu()
-        elif cur_menu == 6:
-          prev_menu = 3
+
+        elif cur_menu == HELP:
+          prev_menu = HOME_MENU
           cur_menu = help_menu()
-        elif cur_menu == -1:
+
+        elif cur_menu == EXIT:
           exit_menu()
           break
 
