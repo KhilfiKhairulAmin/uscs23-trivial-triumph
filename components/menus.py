@@ -5,17 +5,18 @@ Provide all functions for menus
 """
 
 
+import time
 import components.auth as auth
 import components.db as db
 from components.quiz import quizEasy
-from components.ui import clear, countdown, display_header, center, error, fill, prompt, prompt_choice, display_header_cinematic
+from components.ui import clear, countdown, display_header, center, error, fill, good_game, prompt, prompt_choice, display_header_cinematic
 
 
 # Global variable storing the username of current user (need log in first)
 CurUser = ""
 
 # Global variable containing all user data.
-Users = db.get_users_data()
+Users: dict[list] = db.get_users_data()
 
 
 def main_menu():
@@ -136,11 +137,40 @@ def quiz_menu():
   center("You will answer 15 fun trivial questions.")
   center("If you answer some of the first 9 questions correctly, you stand a chance on doubling marks in HARD MODE.")
   center("There are MCQ, True/False, Matching, Fill The Blanks, and Subjective questions.", end="\n\n")
-  prompt("Press Enter when you're ready!", input_width=0)
+  prompt("Press Enter when you're ready!", input_width=0, hidden=True)
   countdown()
   display_header(subtitle="Happy Answering!")
-  quizEasy()
-  return 3
+  
+  start = time.time()  # Record starting time
+  score = quizEasy()  # Run the quiz
+  end = time.time()  # Record finishing time
+
+  # Result processing
+  time_taken = int(end - start)
+  is_new_high_score = True if score > max(Users[CurUser][1:]) else False
+
+  # Store new score
+  if Users[CurUser][1] != -1:
+    Users[CurUser].append(score)
+  else:
+    Users[CurUser][1] = score
+  db.save_users_data(Users)
+
+  fill("*")
+  center("END OF QUIZ", col="\033[33m")
+  time.sleep(1)
+  good_game()
+  prompt("Press Enter to see result\n", hidden=True, input_width=0)
+  fill("*")
+  center()
+  center("RESULT", col="\033[33m", end="\n\n")
+  center(f"Quiz completed!", end="\n\n")
+  if is_new_high_score: center(f"NEW PERSONAL HIGH SCORE!", col="\033[32m")
+  center(f"Your score is: {score} / 48")
+  center(f"Time taken: {time_taken} seconds", end="\n\n")
+  fill("*")
+  prompt("Back to Home\n", hidden=True, input_width=0)
+  return 3  # Go to home menu
 
 
 def leaderboard_menu():
