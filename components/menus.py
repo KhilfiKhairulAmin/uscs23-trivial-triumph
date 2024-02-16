@@ -184,7 +184,7 @@ def help_menu():
 
 
 def exit_menu():
-  pass
+  clear()
 
 
 def exit_modal(message="Are you sure you want to quit?"):

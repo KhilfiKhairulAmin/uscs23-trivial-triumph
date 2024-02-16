@@ -2,13 +2,16 @@
 # TODO Make leaderboard tracker (YASMIN)
 
 # TODO 16/4/2024
+# TODO Handle KeyboardInterrupt during quiz
+# TODO Improve UI for quit modal
+# TODO Implement exit menu display
 # TODO Integrate Leaderboard menu
 
 # TODO Sometime later...
 # TODO Small Report about quiz app
 # TODO Update README file
 
-from components.menus import help_menu, main_menu, sign_up_menu, login_menu, home_menu, quiz_menu, leaderboard_menu, exit_modal
+from components.menus import exit_menu, help_menu, main_menu, sign_up_menu, login_menu, home_menu, quiz_menu, leaderboard_menu, exit_modal
 
 
 def main():
@@ -40,6 +43,7 @@ def main():
           prev_menu = 3
           cur_menu = help_menu()
         elif cur_menu == -1:
+          exit_menu()
           break
 
     # If user press Ctrl+C, go back to previous menu
