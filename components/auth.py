@@ -5,6 +5,9 @@ Provide interface for user authentications in Trivial Triumph
 """
 
 
+from components.ui import error
+
+
 def sign_up(new_username: str, new_password: str, repeat_new_password: str, users: dict):
   """
   Register a new user
@@ -12,25 +15,32 @@ def sign_up(new_username: str, new_password: str, repeat_new_password: str, user
 
   # Make sure username is at least 3 characters long and maximum 100 characters long
   if len(new_username) < 3 or len(new_username) > 100:
-    raise ValueError("Username must contain at least 3 characters and maximum of 100 characters")
+    error("Username must contain at least 3 characters and maximum of 100 characters")
+    return False
 
   # Make sure username is unique
   if new_username in users.keys():
-    raise ValueError("Username already exists")
+    error("Username already exists")
+    return False
 
   # Allow underscores
   temp = new_username.replace("_", "")
 
   # Make sure username only contains alphanumeric characters without space
   if not temp.isalnum():
-    raise ValueError("Username must consists of only alphanumeric characters")
+    error("Username must consists of only alphanumeric characters")
+    return False
 
   # Make sure password is at least 3 characters long and maximum 100 characters long
   if len(new_password) < 3 or len(new_password) > 100:
-    raise ValueError("Password must contain at least 3 characters and maximum of 100 characters")
+    error("Password must contain at least 3 characters and maximum of 100 characters")
+    return False
 
   if repeat_new_password != new_password:
-    raise ValueError("Password does not match the repeated password")
+    error("Password does not match the repeated password")
+    return False
+
+  return True
 
 
 def log_in(username: str, password: str, users: dict):
@@ -38,10 +48,14 @@ def log_in(username: str, password: str, users: dict):
   Authenticate existing user
   """
   if username not in users.keys():
-    raise ValueError("Username does not exist")
+    error("Username does not exist")
+    return False
 
   if users[username][0] != password:
-    raise ValueError("Username or password is false")
+    error("Username or password is false")
+    return False
+  
+  return True
 
 
 if __name__ == "__main__":
