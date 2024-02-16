@@ -30,7 +30,7 @@ def get_users_data():
     # When file is not found, create new file
     
     new_f = open(USER_DATA_FILE, "w")
-    new_f.write("username,password,scores\n")
+    new_f.write("username,password,scores-time\n")
     new_f.close()
     f = open(USER_DATA_FILE, "r")
 
@@ -40,9 +40,13 @@ def get_users_data():
   # Parse data into dictionary
   for line in f:
     raw = line.strip()
-    username, password, *scores = raw.split(",")
-    users[username] = [password]
-    users[username].extend([int(s) for s in scores])  # Format scores to integer
+    username, password, *scores_time = raw.split(",")
+    if scores_time[0] == -1:
+        users[username] = [password, -1]
+    else:
+        scores_time = [s.split("-") for s in scores_time]
+        scores_time = (tuple(int(s[0]),int(s[1])) for s in scores_time) 
+        users[username].append(scores_time)  # Format scores to integer
   return users
 
 
@@ -52,11 +56,14 @@ def save_users_data(users: dict):
   """
   f = open(USER_DATA_FILE, "w")
 
-  raw = "username,password,scores\n"
+  raw = "username,password,scores-time\n"
 
   # Parse dictionary data into string
   for username, data in users.items():
-    raw += f"{username},{data[0]},{','.join([str(d) for d in data[1:]])}\n"
+    if data[1] == -1:
+        raw += f"{username},{data[0]},-1\n"
+    else:
+        raw += f"{username},{data[0]},{','.join([f'{d[0]}-{d[1]}' for d in data[1:]])}\n"
 
   f.write(raw)
 
@@ -161,8 +168,8 @@ def load_sub_questions():
 
 
 if __name__ == "__main__":
-  save_users_data({'yasmin': ['yasmin', 67, 100], 'khilfi': ['khilfi', -1], 'irfan': ['izerith', -1]})
-  get_users_data()
+  save_users_data({'yasmin': ['yasmin', (67,100), (100,60)], 'khilfi': ['khilfi', -1], 'irfan': ['izerith', -1]})
+  print(get_users_data(), end="\n\n\n")
   print(load_mcq_questions(), end="\n\n\n")
   print(load_tf_questions(), end="\n\n\n")
   print(load_matching_questions(), end="\n\n\n")
