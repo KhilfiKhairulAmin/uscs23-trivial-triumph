@@ -188,13 +188,16 @@ def exit_menu():
 
 
 def exit_modal(message="Are you sure you want to quit?"):
-  clear()
-  center(message, end="\n\n")
-  center("[1] No    [2] Yes")
-  center()
+  try:
+    clear()
+    center(message, end="\n\n")
+    center("[1] No    [2] Yes")
+    center()
 
-  choice = int(prompt_choice(">", choices=[1, 2]))
-  if choice == 1:
+    choice = int(prompt_choice(">", choices=[1, 2]))
+    if choice == 1:
+      return False
+    elif choice == 2:
+      return True
+  except KeyboardInterrupt:
     return False
-  elif choice == 2:
-    return True
