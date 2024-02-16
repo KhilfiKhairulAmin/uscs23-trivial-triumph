@@ -138,74 +138,74 @@ def countdown():
 
   clear()
   print("\033[33m")
-  SKIP_ROW = "\n" * 3
+  SKIP_ROW = "\n" * 5
   print(f"""{SKIP_ROW}          
-  {LEFT_PADDING}             .--,-``-.     
-  {LEFT_PADDING}            /   /     '.   
-  {LEFT_PADDING}           / ../        ;  
-  {LEFT_PADDING}           \ ``\  .`-    ' 
-  {LEFT_PADDING}            \___\/   \   : 
-  {LEFT_PADDING}                 \   :   | 
-  {LEFT_PADDING}                 /  /   /  
-  {LEFT_PADDING}                 \  \   \  
-  {LEFT_PADDING}             ___ /   :   | 
-  {LEFT_PADDING}            /   /\   /   : 
-  {LEFT_PADDING}           / ,,/  ',-    . 
-  {LEFT_PADDING}           \ ''\        ;  
-  {LEFT_PADDING}            \   \     .'   
-  {LEFT_PADDING}            `--`-,,-'          
+{LEFT_PADDING}             .--,-``-.     
+{LEFT_PADDING}            /   /     '.   
+{LEFT_PADDING}           / ../        ;  
+{LEFT_PADDING}           \ ``\  .`-    ' 
+{LEFT_PADDING}            \___\/   \   : 
+{LEFT_PADDING}                 \   :   | 
+{LEFT_PADDING}                 /  /   /  
+{LEFT_PADDING}                 \  \   \  
+{LEFT_PADDING}             ___ /   :   | 
+{LEFT_PADDING}            /   /\   /   : 
+{LEFT_PADDING}           / ,,/  ',-    . 
+{LEFT_PADDING}           \ ''\        ;  
+{LEFT_PADDING}            \   \     .'   
+{LEFT_PADDING}            `--`-,,-'          
 """)
   sleep(1)
   clear()
   print(f"""{SKIP_ROW}          
-  {LEFT_PADDING}                 ,----,   
-  {LEFT_PADDING}               .'   .' \  
-  {LEFT_PADDING}             ,----,'    | 
-  {LEFT_PADDING}             |    :  .  ; 
-  {LEFT_PADDING}             ;    |.'  /  
-  {LEFT_PADDING}             `----'/  ;   
-  {LEFT_PADDING}               /  ;  /    
-  {LEFT_PADDING}              ;  /  /-,   
-  {LEFT_PADDING}             /  /  /.`|   
-  {LEFT_PADDING}           ./__;      :   
-  {LEFT_PADDING}           |   :    .'    
-  {LEFT_PADDING}           ;   | .'       
-  {LEFT_PADDING}           `---'              
+{LEFT_PADDING}                 ,----,   
+{LEFT_PADDING}               .'   .' \  
+{LEFT_PADDING}             ,----,'    | 
+{LEFT_PADDING}             |    :  .  ; 
+{LEFT_PADDING}             ;    |.'  /  
+{LEFT_PADDING}             `----'/  ;   
+{LEFT_PADDING}               /  ;  /    
+{LEFT_PADDING}              ;  /  /-,   
+{LEFT_PADDING}             /  /  /.`|   
+{LEFT_PADDING}           ./__;      :   
+{LEFT_PADDING}           |   :    .'    
+{LEFT_PADDING}           ;   | .'       
+{LEFT_PADDING}           `---'              
 """)
   sleep(1.2)
   clear()
   print(f"""{SKIP_ROW}
-  {LEFT_PADDING}                ,---, 
-  {LEFT_PADDING}             ,`--.' | 
-  {LEFT_PADDING}            /    /  : 
-  {LEFT_PADDING}           :    |.' ' 
-  {LEFT_PADDING}           `----':  | 
-  {LEFT_PADDING}              '   ' ; 
-  {LEFT_PADDING}              |   | | 
-  {LEFT_PADDING}              '   : ; 
-  {LEFT_PADDING}              |   | ' 
-  {LEFT_PADDING}              '   : | 
-  {LEFT_PADDING}              ;   |.' 
-  {LEFT_PADDING}              '---'   
+{LEFT_PADDING}                ,---, 
+{LEFT_PADDING}             ,`--.' | 
+{LEFT_PADDING}            /    /  : 
+{LEFT_PADDING}           :    |.' ' 
+{LEFT_PADDING}           `----':  | 
+{LEFT_PADDING}              '   ' ; 
+{LEFT_PADDING}              |   | | 
+{LEFT_PADDING}              '   : ; 
+{LEFT_PADDING}              |   | ' 
+{LEFT_PADDING}              '   : | 
+{LEFT_PADDING}              ;   |.' 
+{LEFT_PADDING}              '---'   
   """)
   sleep(1.2)
   clear()
   print(f"""{SKIP_ROW}
-  {LEFT_PADDING}                              ,---,  
-  {LEFT_PADDING}                ,----..    ,`--.' |  
-  {LEFT_PADDING}  ,----..       /   /   \   |   :  :  
-  {LEFT_PADDING}/   /   \     /   .     :  '   '  ;  
-  {LEFT_PADDING}|   :     :   .   /   ;.  \ |   |  |  
-  {LEFT_PADDING}.   |  ;. /  .   ;   /  ` ; '   :  ;  
-  {LEFT_PADDING}.   ; /--`   ;   |  ; \ ; | |   |  '  
-  {LEFT_PADDING};   | ;  __  |   :  | ; | ' '   :  |  
-  {LEFT_PADDING}|   : |.' .' .   |  ' ' ' : ;   |  ;  
-  {LEFT_PADDING}.   | '_.' : '   ;  \; /  | `---'. |  
-  {LEFT_PADDING}'   ; : \  |  \   \  ',  /   `--..`;  
-  {LEFT_PADDING}'   | '/  .'   ;   :    /   .--,_     
-  {LEFT_PADDING}|   :    /      \   \ .'    |    |`.  
-  {LEFT_PADDING}\   \ .'        `---`      `-- -`, ; 
-  {LEFT_PADDING}  `---`                       '---`"                              
+{LEFT_PADDING}                              ,---,  
+{LEFT_PADDING}                ,----..    ,`--.' |  
+{LEFT_PADDING}  ,----..       /   /   \   |   :  :  
+{LEFT_PADDING}/   /   \     /   .     :  '   '  ;  
+{LEFT_PADDING}|   :     :   .   /   ;.  \ |   |  |  
+{LEFT_PADDING}.   |  ;. /  .   ;   /  ` ; '   :  ;  
+{LEFT_PADDING}.   ; /--`   ;   |  ; \ ; | |   |  '  
+{LEFT_PADDING};   | ;  __  |   :  | ; | ' '   :  |  
+{LEFT_PADDING}|   : |.' .' .   |  ' ' ' : ;   |  ;  
+{LEFT_PADDING}.   | '_.' : '   ;  \; /  | `---'. |  
+{LEFT_PADDING}'   ; : \  |  \   \  ',  /   `--..`;  
+{LEFT_PADDING}'   | '/  .'   ;   :    /   .--,_     
+{LEFT_PADDING}|   :    /      \   \ .'    |    |`.  
+{LEFT_PADDING}\   \ .'        `---`      `-- -`, ; 
+{LEFT_PADDING}  `---`                       '---`"                              
     """)
   sleep(1)
   clear()
@@ -214,24 +214,23 @@ def countdown():
 
 def good_game():
   clear()
-  GG = f"""
-  
-       ░▒▓██████▓▒░   ░▒▓██████▓▒░   ░▒▓██████▓▒░  ░▒▓███████▓▒░                 
-       ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░                
-       ░▒▓█▓▒░        ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░                
-       ░▒▓█▓▒▒▓███▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░                
-       ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░                
-       ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░                
-       ░▒▓██████▓▒░   ░▒▓██████▓▒░   ░▒▓██████▓▒░  ░▒▓███████▓▒░                 
-                                                                            
-                                                                            
-  ░▒▓██████▓▒░   ░▒▓██████▓▒░  ░▒▓██████████████▓▒░  ░▒▓████████▓▒░ ░▒▓█▓▒░ 
-  ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░        ░▒▓█▓▒░ 
-  ░▒▓█▓▒░        ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░        ░▒▓█▓▒░ 
-  ░▒▓█▓▒▒▓███▓▒░ ░▒▓████████▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓██████▓▒░   ░▒▓█▓▒░ 
-  ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░        ░▒▓█▓▒░ 
-  ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░                
-  ░▒▓██████▓▒░  ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓████████▓▒░ ░▒▓█▓▒░ 
+  GG = f"""{"\n" * 5}
+        ░▒▓██████▓▒░   ░▒▓██████▓▒░   ░▒▓██████▓▒░  ░▒▓███████▓▒░                 
+        ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░                
+        ░▒▓█▓▒░        ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░                
+        ░▒▓█▓▒▒▓███▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░                
+        ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░                
+        ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░                
+        ░▒▓██████▓▒░   ░▒▓██████▓▒░   ░▒▓██████▓▒░  ░▒▓███████▓▒░                 
+                                                                          
+                                                                          
+░▒▓██████▓▒░   ░▒▓██████▓▒░  ░▒▓██████████████▓▒░  ░▒▓████████▓▒░ ░▒▓█▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░        ░▒▓█▓▒░ 
+░▒▓█▓▒░        ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░        ░▒▓█▓▒░ 
+░▒▓█▓▒▒▓███▓▒░ ░▒▓████████▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓██████▓▒░   ░▒▓█▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░        ░▒▓█▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░                
+░▒▓██████▓▒░  ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓████████▓▒░ ░▒▓█▓▒░ 
                                                                 
   """
   
