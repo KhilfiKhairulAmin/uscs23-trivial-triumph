@@ -41,12 +41,12 @@ def get_users_data():
   for line in f:
     raw = line.strip()
     username, password, *scores_time = raw.split(",")
-    if scores_time[0] == -1:
+    if scores_time[0] == "-1":
         users[username] = [password, -1]
     else:
         scores_time = [s.split("-") for s in scores_time]
-        scores_time = (tuple(int(s[0]),int(s[1])) for s in scores_time) 
-        users[username].append(scores_time)  # Format scores to integer
+        scores_time = [tuple([int(s[0]),int(s[1])]) for s in scores_time]
+        users[username] = [password] + scores_time
   return users
 
 
