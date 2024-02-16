@@ -40,17 +40,7 @@ def quizEasy():
         score += quizEasy_TF(questionsTF, number_of_questions=2)
         score += quizEasy_Match(questionsMatch, number_of_questions=2)
 
-    center("END OF QUIZ")
-    end = time.time()
-
-    good_game()
-    prompt("Press Enter to see result", hidden=True, input_width=0)
-    fill("%")
-    center()
-    center("RESULT", col="\033[33m", end="\n\n")
-    center(f"Quiz completed!\nYour score is: {score}")
-    center(f"Time taken: {int(end-start)} seconds")
-    prompt("Back to Main Menu", hidden=True, input_width=0)
+    return score
 
     
 def quizEasy_MCQ(questionsMCQ: list, number_of_questions=3):
