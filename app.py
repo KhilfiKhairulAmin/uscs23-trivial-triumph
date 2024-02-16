@@ -2,7 +2,6 @@
 # TODO Make leaderboard tracker (YASMIN)
 
 # TODO 16/4/2024
-# TODO Quit menu
 # TODO Integrate Leaderboard menu
 
 # TODO Sometime later...
@@ -16,25 +15,36 @@ def main():
   """
   Starting point of the application. This function manages the state of the application.
   """
-  state = 0
+  prev_menu = -1
+  cur_menu = 0
+
   while True:
-    if state == 0:
-      state = main_menu()
-    elif state == 1:
-      state = sign_up_menu()
-    elif state == 2:
-      state = login_menu()
-    elif state == 3:
-      state = home_menu()
-    elif state == 4:
-      state = quiz_menu()
-    elif state == 5:
-      leaderboard_menu()
-    elif state == 6:
-      state = help_menu()
-    elif state == -1:
-      exit_modal()
-      break
+    try:
+        if cur_menu == 0:
+          cur_menu = main_menu()  # Parent menu 1
+        elif cur_menu == 1:
+          prev_menu = 0
+          cur_menu = sign_up_menu()
+        elif cur_menu == 2:
+          prev_menu = 0
+          cur_menu = login_menu()
+        elif cur_menu == 3:
+          cur_menu = home_menu()  # Parent menu 2
+        elif cur_menu == 4:
+          prev_menu = 3
+          cur_menu = quiz_menu()
+        elif cur_menu == 5:
+          prev_menu = 3
+          leaderboard_menu()
+        elif cur_menu == 6:
+          prev_menu = 3
+          cur_menu = help_menu()
+        elif cur_menu == -1:
+          break
+
+    # If user press Ctrl+C, go back to previous menu
+    except KeyboardInterrupt:
+      cur_menu = prev_menu
 
 
 if __name__ == "__main__":
