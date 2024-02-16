@@ -9,7 +9,7 @@
 # TODO Small Report about quiz app
 # TODO Update README file
 
-from components.menus import help_menu, main_menu, sign_up_menu, login_menu, home_menu, quiz_menu, leaderboard_menu, exit_menu
+from components.menus import help_menu, main_menu, sign_up_menu, login_menu, home_menu, quiz_menu, leaderboard_menu, exit_modal
 
 
 def main():
@@ -33,7 +33,7 @@ def main():
     elif state == 6:
       state = help_menu()
     elif state == -1:
-      exit_menu()
+      exit_modal()
       break
 
 

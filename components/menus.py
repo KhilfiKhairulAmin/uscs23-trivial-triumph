@@ -32,21 +32,18 @@ def main_menu():
 
   while True:
     try:
-      choice = int(prompt_choice(">", choices=[1, 2, 3]))
+      choice = int(prompt_choice(">", choices=[1, 2]))
       
       if choice == 1:
         return 1  # Go to sign up
       elif choice == 2:
         return 2  # Go to login
-      elif choice == 3:
-        return -1  # Quit the app
 
     except ValueError as err:
       error(err)
     except KeyboardInterrupt:
       # If user press Ctrl+C, prompt to enter 3 for quitting the app
-      print()
-      center("Please enter '3' to quit the application.", end="\n\n")
+      exit_modal()
 
 
 def sign_up_menu():
@@ -112,24 +109,29 @@ def home_menu():
   display_header(subtitle=f"Welcome {CurUser}!")
 
   while True:
-    # Prompt message
-    center("Home Menu\n")
-    center("(1) Play       ")
-    center("(2) Leaderboard")
-    center("(3) Help       ")
-    center("(4) Logout     ")
-    center()
-    choice = int(prompt_choice(">", choices=[1, 2, 3, 4]))
+    try:
+      # Prompt message
+      center("Home Menu\n")
+      center("(1) Play       ")
+      center("(2) Leaderboard")
+      center("(3) Help       ")
+      center("(4) Logout     ")
+      center()
+      choice = int(prompt_choice(">", choices=[1, 2, 3, 4]))
 
-    if choice == 1:
-      return 4  # Go to quiz menu
-    elif choice == 2:
-      return 5  # Go to leaderboard menu
-    elif choice == 3:
-      return 6  # Go to help menu
-    elif choice == 4:
-      CurUser = ""  # Reset current user due to logout
-      return 0  # Back to main menu
+      if choice == 1:
+        return 4  # Go to quiz menu
+      elif choice == 2:
+        return 5  # Go to leaderboard menu
+      elif choice == 3:
+        return 6  # Go to help menu
+      elif choice == 4:
+        CurUser = ""  # Reset current user due to logout
+        return 0  # Back to main menu
+    except ValueError as err:
+      error(err)
+    except KeyboardInterrupt:
+      exit_modal()
     
   
 def quiz_menu():
@@ -150,7 +152,7 @@ def quiz_menu():
 
   # Result processing
   time_taken = int(end - start)
-  is_new_high_score = True if score > max(Users[CurUser][1:]) else False
+  is_new_high_score = score > max(Users[CurUser][1:])
 
   # Store new score
   if Users[CurUser][1] != -1:
@@ -172,7 +174,7 @@ def quiz_menu():
   center(f"Your score is: {score} / 48")
   center(f"Time taken: {time_taken} seconds", end="\n\n")
   fill("*")
-  prompt("Back to Home\n", hidden=True, input_width=0)
+  prompt("Back to Home...\n", hidden=True, input_width=0)
   return 3  # Go to home menu
 
 
@@ -188,9 +190,26 @@ def help_menu():
   center("Proceed        -  [Enter]           ")
   center("Back/Previous  -  [Ctrl + C]        ")
   center()
-  prompt("Back to Home\n", hidden=True, input_width=1)
+  prompt("Back to Home...\n", hidden=True, input_width=1)
   return 3  # Go to home menu
 
 
-def exit_menu():
-  pass
+def exit_modal(message="Are you sure you want to quit?"):
+  center(message, end="\n\n")
+  center("[1] No    [2] Yes")
+  center()
+
+  while True:
+    try:
+      choice = int(prompt_choice(">", choices=[1, 2]))
+      
+      if choice == 1:
+        return
+      elif choice == 2:
+        exit()
+
+    except ValueError as err:
+      error(err)
+    except KeyboardInterrupt:
+      # If user press Ctrl+C, prompt to enter 3 for quitting the app
+      return
