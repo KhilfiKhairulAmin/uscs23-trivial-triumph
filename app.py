@@ -2,9 +2,6 @@
 # TODO Make leaderboard tracker (YASMIN)
 
 # TODO 16/4/2024
-# TODO Handle KeyboardInterrupt during quiz
-# TODO Improve UI for quit modal
-# TODO Implement exit menu display
 # TODO Integrate Leaderboard menu
 
 # TODO Sometime later...
