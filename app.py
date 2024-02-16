@@ -8,7 +8,7 @@
 # TODO Small Report about quiz app
 # TODO Update README file
 
-from components.menus import exit_menu, help_menu, main_menu, sign_up_menu, login_menu, home_menu, quiz_menu, leaderboard_menu, \
+from components.menus import STATISTIC, exit_menu, help_menu, main_menu, player_statistics_menu, sign_up_menu, login_menu, home_menu, quiz_menu, leaderboard_menu, \
                              MAIN_MENU, SIGN_UP, LOGIN, HOME_MENU, QUIZ, LEADERBOARD, HELP, EXIT
 
 
@@ -41,7 +41,11 @@ def main():
 
         elif cur_menu == LEADERBOARD:
           prev_menu = HOME_MENU
-          leaderboard_menu()
+          cur_menu = leaderboard_menu()
+
+        elif cur_menu == STATISTIC:
+          prev_menu = HOME_MENU
+          cur_menu = player_statistics_menu()
 
         elif cur_menu == HELP:
           prev_menu = HOME_MENU

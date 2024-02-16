@@ -127,7 +127,7 @@ def quizEasy_Match(questionsMatch: list, number_of_questions=3):
 
             while True:
                 try:
-                    answer = prompt_choice(f"({chr(65+i)}) -> ", choices=[1, 2, 3])
+                    answer = prompt_choice(f"({chr(65+j)}) -> ", choices=[1, 2, 3])
                     center()
                     break
                 except ValueError as err:

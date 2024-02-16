@@ -17,8 +17,9 @@ SIGN_UP = 1
 LOGIN = 2
 HOME_MENU = 3
 QUIZ = 4
-LEADERBOARD = 5
-HELP = 6
+STATISTIC = 5
+LEADERBOARD = 6
+HELP = 7
 EXIT = -1
 
 
@@ -111,19 +112,22 @@ def home_menu():
     # Prompt message
     center("Home Menu\n")
     center("(1) Play       ")
-    center("(2) Leaderboard")
-    center("(3) Help       ")
-    center("(4) Logout     ")
+    center("(2) Stats      ")
+    center("(3) Leaderboard")
+    center("(4) Help       ")
+    center("(5) Logout     ")
     center()
 
-    choice = int(prompt_choice(">", choices=[1, 2, 3, 4]))
+    choice = int(prompt_choice(">", choices=[1, 2, 3, 4, 5]))
     if choice == 1:
       return QUIZ  # Go to quiz menu
     elif choice == 2:
-      return LEADERBOARD  # Go to leaderboard menu
+      return STATISTIC  # Go to leaderboard menu
     elif choice == 3:
-      return HELP  # Go to help menu
+      return LEADERBOARD  # Go to help menu
     elif choice == 4:
+      return HELP
+    elif choice == 5:
       CurUser = ""  # Reset current user due to logout
       return MAIN_MENU  # Back to main menu
   except KeyboardInterrupt:
@@ -150,13 +154,16 @@ def quiz_menu():
 
   # Result processing
   time_taken = int(end - start)
-  is_new_high_score = score > max(Users[CurUser][1:])
+  if Users[CurUser][1] == -1:
+    is_new_high_score = True
+  else:
+    is_new_high_score = score > max([x[0] for x in Users[CurUser][1:]])
 
   # Store new score
   if Users[CurUser][1] != -1:
-    Users[CurUser].append(score)
+    Users[CurUser].append((score, time_taken))
   else:
-    Users[CurUser][1] = score
+    Users[CurUser][1] = (score, time_taken)
   db.save_users_data(Users)
 
   fill("*")
@@ -210,3 +217,49 @@ def exit_modal(message="Are you sure you want to quit?"):
       return True
   except KeyboardInterrupt:
     return False
+
+
+def player_statistics_menu():
+  # Display header
+  clear()
+  center("Player Stats", col="\033[33m")
+  center()
+  fill("*")
+  center()
+  
+  matches_played = 0 if Users[CurUser][1] == -1 else len(Users[CurUser][1:])
+
+  center(f"Username: {CurUser}", col="\033[33m")
+  center(f"Matches Played: {matches_played}", end="\n\n")
+
+  if matches_played == 0:
+    center("No data available. Play at least one match to see statistics.")
+  else:
+    center("+-------+-------+------------+-------+")
+    center("| Match | Score | Time taken | Speed |")
+    center("+-------+-------+------------+-------+")
+
+    count = 0
+    total_score = 0
+    total_time = 0
+    highest_score = 0
+    
+    for score, time in Users[CurUser][1:]:
+      center("|%7d|%4d/48|%10d s| %5.2f |" % (count+1, score, time, time / 15))
+      center("+-------+-------+------------+-------+")
+      count += 1
+      total_score += score
+      total_time += time
+      if score > highest_score:
+        highest_score = score
+
+    center()
+    center(f"Average Score: {round(total_score / count, 2)}")
+    center(f"Average Time Taken: {round(total_time / count, 2)} s")
+    center(f"Best Score: {highest_score}/48", col="\033[32m")
+  
+  center()
+  fill("*")
+  center()
+  prompt("Back to Home\n", input_width=1, hidden=True)
+  return HOME_MENU
