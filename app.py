@@ -16,7 +16,7 @@ def main():
   """
   Starting point of the application. This function manages the state of the application.
   """
-  prev_menu = -1
+  parent_menu = -1
   cur_menu = 0
 
   while True:
@@ -25,39 +25,39 @@ def main():
           cur_menu = main_menu()  # Parent menu 1
         
         elif cur_menu == SIGN_UP:
-          prev_menu = MAIN_MENU
+          parent_menu = MAIN_MENU
           cur_menu = sign_up_menu()
         
         elif cur_menu == LOGIN:
-          prev_menu = MAIN_MENU
+          parent_menu = MAIN_MENU
           cur_menu = login_menu()
 
         elif cur_menu == HOME_MENU:
           cur_menu = home_menu()  # Parent menu 2
 
         elif cur_menu == QUIZ:
-          prev_menu = HOME_MENU
+          parent_menu = HOME_MENU
           cur_menu = quiz_menu()
 
         elif cur_menu == LEADERBOARD:
-          prev_menu = HOME_MENU
+          parent_menu = HOME_MENU
           cur_menu = leaderboard_menu()
 
         elif cur_menu == STATISTIC:
-          prev_menu = HOME_MENU
+          parent_menu = HOME_MENU
           cur_menu = player_statistics_menu()
 
         elif cur_menu == HELP:
-          prev_menu = HOME_MENU
+          parent_menu = HOME_MENU
           cur_menu = help_menu()
 
         elif cur_menu == EXIT:
           exit_menu()
           break
 
-    # If user press Ctrl+C, go back to previous menu
+    # If user press Ctrl+C, go back to parent menu
     except KeyboardInterrupt:
-      cur_menu = prev_menu
+      cur_menu = parent_menu
 
 
 if __name__ == "__main__":
