@@ -16,8 +16,8 @@ def main():
   """
   Starting point of the application. This function manages the state of the application.
   """
-  parent_menu = -1
-  cur_menu = 0
+  parent_menu = EXIT
+  cur_menu = MAIN_MENU
 
   while True:
     try:
