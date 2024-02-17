@@ -1,5 +1,8 @@
 print("WELCOME TO THE PROGRAM!")
 
+# Global variable to store current player's data
+data = []
+
 def signLog():
     print("1. Sign Up")
     print("2. Log In")
@@ -34,10 +37,11 @@ def logIn():
     authentication = open("myName.txt",'r')
     successLog = False
     for line in authentication:
+        global data
         data = line.strip().split()
         if name == data[0] and program == data[1] and studentID == data[2]:
             print("Login Successful. \n PLEASE PROCEED")
-            mainMenu(data)
+            mainMenu()
             successLog = True
             break
     authentication.close()
@@ -45,7 +49,8 @@ def logIn():
         print("Login failed, please try again!")
         signLog()
         
-def mainMenu(data):
+def mainMenu():
+    global data
     print("~"*20)
     print("~","Welcome,",data[0],"!","~")
     print("~","Highest score :",data[3],  "~")
@@ -55,14 +60,14 @@ def mainMenu(data):
     print("2. Exit program")
     choose=input("\nEnter your choice:")
     if choose=='1':
-        playQuiz(data)       
+        playQuiz()       
     elif choose=='2':
         exit()
     else:
         print("Invalid input!")
-        mainMenu(data)
+        mainMenu()
 
-def playQuiz(data):
+def playQuiz():
     import random
     print("="*55)
     print("\nThe answers are case sensitive. Enter 000 to go back to main menu.\n")
@@ -113,7 +118,7 @@ def playQuiz(data):
     print("You got %0.2f"%percentage,"% of questions correct!")
     print("+"*30,"\n")
     
-
+    global data
     data[3]=max(int(data[3]),totalMark)        #to update the highest score
 
     
@@ -135,7 +140,7 @@ def playQuiz(data):
     repeat.lower()
     
     if repeat == "yes":
-        mainMenu(data)
+        mainMenu()
     else:
         exit()
 
