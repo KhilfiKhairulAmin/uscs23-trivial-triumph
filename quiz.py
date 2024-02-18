@@ -5,8 +5,8 @@ Provide quiz algorithms for handling quiz logics and scoring
 """
 
 
-from components.db import load_mcq_questions, load_tf_questions, load_matching_questions, load_FIB_questions, load_sub_questions
-from components.ui import center, error, fill, prompt, prompt_choice, success
+from db import load_mcq_questions, load_tf_questions, load_matching_questions, load_FIB_questions, load_sub_questions
+from ui import center, error, fill, prompt, prompt_choice, success
 
 import random
 

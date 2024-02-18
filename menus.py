@@ -6,10 +6,10 @@ Provide all functions for menus
 
 
 import time
-import components.auth as auth
-import components.db as db
-from components.quiz import quizEasy
-from components.ui import clear, countdown, display_header, center, fill, good_game, prompt, prompt_choice, display_header_cinematic
+from auth import sign_up, log_in
+from db import save_users_data, get_users_data
+from quiz import quizEasy
+from ui import clear, countdown, display_header, center, fill, good_game, prompt, prompt_choice, display_header_cinematic
 
 
 MAIN_MENU = 0
@@ -27,7 +27,7 @@ EXIT = -1
 CurUser = ""
 
 # Global variable containing all user data.
-Users: dict[list] = db.get_users_data()
+Users: dict[list] = get_users_data()
 
 
 def main_menu():
@@ -68,15 +68,12 @@ def sign_up_menu():
     password = prompt("Password: ", hidden=True)
     repeat_password = prompt("Repeat password: ", hidden=True, input_width=24)
 
-    if not auth.sign_up(username, password, repeat_password, Users):  # Validate the input data for sign up
-      continue
+    CurUser = sign_up(username, password, repeat_password, Users)
 
-    # Add the new user
-    Users[username] = [password, -1]
-    CurUser = username
+    if not CurUser: continue
 
     # Save the updated data
-    db.save_users_data(Users)
+    save_users_data(Users)
     return HOME_MENU  # Go to home menu
 
 
@@ -91,12 +88,12 @@ def login_menu():
   while True:
     username = prompt("Username: ")
     password = prompt("Password: ", hidden=True)
-    if not auth.log_in(username, password, Users):  # Validate the input data for sign up
-      continue
     
-    # Update the global variables
-    global CurUser
-    CurUser = username
+    global CurUser, Users
+    CurUser = log_in(username, password, Users)
+
+    if not CurUser: continue
+
     return HOME_MENU  # Go to home menu
 
 
@@ -164,7 +161,7 @@ def quiz_menu():
     Users[CurUser].append((score, time_taken))
   else:
     Users[CurUser][1] = (score, time_taken)
-  db.save_users_data(Users)
+  save_users_data(Users)
 
   fill("*")
   center("END OF QUIZ", col="\033[33m")
