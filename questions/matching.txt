@@ -1,4 +1,4 @@
-statement1 -> answer1  # Randomize the answer order each time this question is picked
+statement1 -> answer1  # The answer order will be randomized each time a question is picked
 statement2 -> answer2
 statement3 -> answer3
 
