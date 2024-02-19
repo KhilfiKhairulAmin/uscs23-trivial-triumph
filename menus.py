@@ -181,7 +181,31 @@ def quiz_menu():
 
 
 def leaderboard_menu():
-  pass
+    """
+    Leaderboard menu
+    """
+    global Users
+    Users = get_users_data()
+    display_header(subtitle="Top 10 Players' Highest Marks")
+    
+    try:
+        # Sort users by their highest score
+        sorted_users = sorted(Users.items(), key=lambda x: max([score[0] for score in x[1][1:]]), reverse=True)
+        
+        center("Leaderboard\n")
+        center("Rank\tName\tHighest Score")
+        for rank, (username, scores) in enumerate(sorted_users[:10], 1):
+            highest_score = max([score[0] for score in scores[1:]])
+            center(f"{rank}\t{username}\t{highest_score}")
+        
+        prompt("\nPress Enter to return to Home...\n", hidden=True, input_width=0)
+        return HOME_MENU  # Go to home menu
+    
+    except KeyboardInterrupt:
+        if exit_modal():
+            return EXIT  # Quit the application
+        return LEADERBOARD
+
 
 
 def help_menu():
