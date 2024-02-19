@@ -12,6 +12,7 @@ from quiz import quizEasy
 from ui import clear, countdown, display_header, center, fill, good_game, prompt, prompt_choice, display_header_cinematic
 
 
+# Enums for referencing menu number
 MAIN_MENU = 0
 SIGN_UP = 1
 LOGIN = 2
@@ -32,7 +33,7 @@ Users: dict[list] = get_users_data()
 
 def main_menu():
   """
-  Main menu
+  Main menu (parent menu)
   """
   try:
     # Display header of main menu
@@ -99,7 +100,7 @@ def login_menu():
 
 def home_menu():
   """
-  Home menu
+  Home menu (parent menu)
   """
   try:
     # Display header of home menu
@@ -134,6 +135,9 @@ def home_menu():
   
   
 def quiz_menu():
+  """
+  Handles Quiz display and flow
+  """
   clear()
   center("Trivial Triumph", col="\033[33m")
   fill("*")
@@ -205,6 +209,9 @@ def leaderboard_menu():
 
 
 def help_menu():
+  """
+  Show helpful controls to navigate through the app
+  """
   display_header("")
   center("Controls", end="\n\n")
   center("Navigate       -  [1, 2, 3, 4, 5]   ")
@@ -217,10 +224,16 @@ def help_menu():
 
 
 def exit_menu():
+  """
+  Clear the whole application texts when exitted application
+  """
   clear()
 
 
 def exit_modal(message="Are you sure you want to quit?"):
+  """
+  Prompt confirmation from user whether to exit the application or not.
+  """
   try:
     clear()
     center(message, end="\n\n")
@@ -237,6 +250,9 @@ def exit_modal(message="Are you sure you want to quit?"):
 
 
 def player_statistics_menu():
+  """
+  Generate and display statistics about the user performance based on matches, scores, and time.
+  """
   # Display header
   clear()
   center("Player Stats", col="\033[33m")
