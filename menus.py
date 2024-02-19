@@ -207,7 +207,7 @@ def leaderboard_menu():
 def help_menu():
   display_header("")
   center("Controls", end="\n\n")
-  center("Navigate       -  [1, 2, 3, 4, 5]      ")
+  center("Navigate       -  [1, 2, 3, 4, 5]   ")
   center("Answer         -  [A..Z, a..z, 0..9]")
   center("Proceed        -  [Enter]           ")
   center("Back/Previous  -  [Ctrl + C]        ")
