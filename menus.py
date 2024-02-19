@@ -181,37 +181,33 @@ def quiz_menu():
 
 
 def leaderboard_menu():
-    """
-    Leaderboard menu
-    """
-    global Users
-    Users = get_users_data()
-    display_header(subtitle="Top 10 Players' Highest Marks")
-    
-    try:
-        # Sort users by their highest score
-        sorted_users = sorted(Users.items(), key=lambda x: max([score[0] for score in x[1][1:]]), reverse=True)
-        
-        center("Leaderboard\n")
-        center("Rank\tName\tHighest Score")
-        for rank, (username, scores) in enumerate(sorted_users[:10], 1):
-            highest_score = max([score[0] for score in scores[1:]])
-            center(f"{rank}\t{username}\t{highest_score}")
-        
-        prompt("\nPress Enter to return to Home...\n", hidden=True, input_width=0)
-        return HOME_MENU  # Go to home menu
-    
-    except KeyboardInterrupt:
-        if exit_modal():
-            return EXIT  # Quit the application
-        return LEADERBOARD
+  """
+  Leaderboard menu
+  """
+  global Users
+  Users = get_users_data()
+  display_header(subtitle="Top 10 Players' Highest Marks")
+  
+  # Sort users by their highest score
+  sorted_users = sorted(Users.items(), key=lambda x: (min([score[0] for score in x[1][1:]]), max([time[1] for time in x[1][1:]])), reverse=True)
 
+  center("Leaderboard", col="\033[33m", end="\n\n")
+  center("Rank    Name            Highest Score    Time Taken")
+  for rank, (username, scores) in enumerate(sorted_users[:10], 1):
+      sorted_scores = sorted(scores[1:], key=lambda x: (x[0], -x[1]), reverse=True)
+      highest_score, lowest_time = sorted_scores[0]
+      center("%4d    %-12s    %-2d / 48          %-3ds      " % (rank, username, highest_score, lowest_time))
+  
+  center(end="\n\n\n")
+  fill("*")
+  prompt("Press Enter to return to Home...\n", hidden=True, input_width=0)
+  return HOME_MENU  # Go to home menu
 
 
 def help_menu():
   display_header("")
   center("Controls", end="\n\n")
-  center("Navigate       -  [1, 2, 3, 4]      ")
+  center("Navigate       -  [1, 2, 3, 4, 5]      ")
   center("Answer         -  [A..Z, a..z, 0..9]")
   center("Proceed        -  [Enter]           ")
   center("Back/Previous  -  [Ctrl + C]        ")
