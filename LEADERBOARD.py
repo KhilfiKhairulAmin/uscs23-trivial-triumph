@@ -185,7 +185,7 @@ def leaderboard_menu():
     Leaderboard menu
     """
     global Users
-    Users = db.get_users_data()
+    Users = get_users_data()
     display_header(subtitle="Top 10 Players' Highest Marks")
     
     try:
