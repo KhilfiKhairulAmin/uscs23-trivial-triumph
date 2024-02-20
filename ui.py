@@ -7,7 +7,7 @@ Provide custom functions to display text beautifully in the terminal
 
 from time import sleep
 import os
-import getpass
+import getpass  # For password input
 
 
 # Width of the terminal
