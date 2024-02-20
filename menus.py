@@ -193,8 +193,8 @@ def leaderboard_menu():
   display_header(subtitle="Top 10 Players' Highest Marks")
   
   # Sort users by their highest score
-  sorted_users = sorted(Users.items(), key=lambda x: (min([score[0] for score in x[1][1:]]), max([time[1] for time in x[1][1:]])), reverse=True)
-
+  sorted_users = sorted(Users.items(), key=lambda x: (max([score[0] for score in x[1][1:]]), min([-time[1] for time in x[1][1:]])), reverse=True)
+  print(sorted_users)
   center("Leaderboard", col="\033[33m", end="\n\n")
   center("Rank    Name            Highest Score    Time Taken")
   for rank, (username, scores) in enumerate(sorted_users[:10], 1):
