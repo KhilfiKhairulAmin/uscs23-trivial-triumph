@@ -188,13 +188,20 @@ def leaderboard_menu():
   """
   Leaderboard menu
   """
-  global Users
-  Users = get_users_data()
+  users = get_users_data()
   display_header(subtitle="Top 10 Players' Highest Marks")
   
+  # Filter from player that hasnot played any matches
+  remove_list = []
+  for k in users.keys():
+    if users[k][1] == -1:
+      remove_list.append(k)
+  
+  for k in remove_list:
+    users.pop(k)
+
   # Sort users by their highest score
-  sorted_users = sorted(Users.items(), key=lambda x: (max([score[0] for score in x[1][1:]]), min([-time[1] for time in x[1][1:]])), reverse=True)
-  print(sorted_users)
+  sorted_users = sorted(users.items(), key=lambda x: (max([score[0] for score in x[1][1:]]), min([-time[1] for time in x[1][1:]])), reverse=True)
   center("Leaderboard", col="\033[33m", end="\n\n")
   center("Rank    Name            Highest Score    Time Taken")
   for rank, (username, scores) in enumerate(sorted_users[:10], 1):
